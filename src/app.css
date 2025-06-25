@@ -1,0 +1,55 @@
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+div#app{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-image: linear-gradient(to left, blue, purple);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#container{
+    width: 20%;
+    background-color: blueviolet;
+}
+div#header{
+    margin-top: 0px;
+    background-color: yellow;
+}
+/*div#jogar{
+
+}*/
+a{
+    color: black;
+    margin-bottom: 10px;
+    position: relative;
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(102, 145, 255);
+}
+a::after{
+    content: " ";
+    width: 0%;
+    height: 2px;
+    background-color: rgb(102, 145, 255);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+a:hover::after{
+    width: 102%;
+}
+

@@ -1,0 +1,1 @@
+export const palavras = ["CASAS", "LIVRO", "TORRE", "FALTA", "BOMBA", "MUNDO"];
