@@ -1,7 +1,7 @@
 <script lang="ts">
   // Importa a lista de palavras possíveis para o jogo
   import { palavras } from '../palavras';
-  import '../app.css';
+  import "../styles/jogar.css"
 
   // Escolhe aleatoriamente uma palavra da lista
   function escolherPalavraAleatoria() {
