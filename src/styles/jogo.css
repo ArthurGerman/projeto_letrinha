@@ -1,0 +1,32 @@
+body {
+    background-color: aquamarine;
+}
+
+.linha {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.letra {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-right: 4px;
+    text-transform: uppercase;
+}
+
+.verde {
+    background: #6aaa64;
+    color: white;
+}
+
+.amarelo {
+    background: #c9b458;
+    color: white;
+}
+
+.cinza {
+    background: #787c7e;
+    color: white;
+}
