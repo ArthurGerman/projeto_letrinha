@@ -3,18 +3,18 @@
 </script>
 
 <body>
-	<div>
-		<div>
+	<div id="container">
+		<div style="background-color: aqua;">
 			<h1>Sopa de Letrinhas</h1>
 		</div>
 
-		<div>
+		<div style="background-color: blueviolet;"> <!--Essas cores locais são apenas para localizar visualmente as divs no body-->
 			<div>
-				<a href="/jogo"><button>jogo</button></a>
+				<a href="/jogo">Jogo</a>
 			</div>
 
 			<div>
-				<a href="/sobre"><button>sobre</button></a>
+				<a href="/sobre">Sobre</a>
 			</div>
 		</div>
 	</div>
