@@ -161,13 +161,13 @@
 				</button>
 			</div>
 
+			<!-- Título do jogo -->
 			<div id="texto">
 				<h1>Sopa de Letrinhas</h1>
 			</div>
-	
-			<!-- Título do jogo -->
+
 		</div>
-	
+
 		<!-- Geração da grade de tentativas -->
 		<table>
 			<tbody>
@@ -193,9 +193,9 @@
 				{/each}
 			</tbody>
 		</table>
-	
+
 		<br />
-	
+
 		<table>
 			<tbody>
 				{#each keyBoard as line, i}
@@ -214,7 +214,7 @@
 				{/each}
 			</tbody>
 		</table>
-	
+
 		<!-- Exibe mensagem final quando o jogo termina -->
 		{#if jogoFinalizado}
 			<p>
