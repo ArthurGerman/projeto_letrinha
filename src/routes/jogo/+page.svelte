@@ -4,29 +4,6 @@
 	import { palavras } from '../../palavras';
 	import '../../styles/jogo.css';
 
-	// Escolhe aleatoriamente uma palavra da lista
-	function escolherPalavraAleatoria() {
-		const indiceAleatorio = Math.floor(Math.random() * palavras.length);
-		return palavras[indiceAleatorio];
-	}
-
-	function delay(ms: number) {
-		return new Promise((resolve) => setTimeout(resolve, ms));
-	}
-
-	async function focarCampoAtual() {
-		await tick(); // espera o DOM atualizar
-		await delay(500); // espera 300ms antes de focar
-		const inputAtual = document.getElementById(`input-${rodadaAtual}-0`);
-		inputAtual?.focus();
-	}
-
-	// Chama ao montar e sempre que mudar de rodada
-	onMount(focarCampoAtual);
-	$: if (typeof window !== 'undefined' && rodadaAtual >= 0) {
-		focarCampoAtual();
-	} // reativa sempre que a rodada muda
-
 	// Estado inicial do jogo
 	let palavraSecreta = escolherPalavraAleatoria(); // palavra que o jogador deve adivinhar
 	let tentativas = Array(6)
@@ -38,40 +15,73 @@
 	let rodadaAtual = 0; // indica a linha que o jogador está digitando
 	let jogoFinalizado = false; // indica se o jogo terminou
 
+	const keyBoard: string[][] = [
+		['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+		['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '←'],
+		['Z', 'X', 'C', 'V', 'B', 'N', 'M', 'ENTER']
+	];
+
+	// Escolhe aleatoriamente uma palavra da lista
+	function escolherPalavraAleatoria() {
+		const indiceAleatorio = Math.floor(Math.random() * palavras.length);
+		return palavras[indiceAleatorio];
+	}
+
+	// Referências dos inputs
+	let refs: HTMLInputElement[][] = Array(6)
+		.fill(null)
+		.map(() => Array(5).fill(null));
+
+	async function focarCampoAtual() {
+		await tick();
+		refs[rodadaAtual][0]?.focus();
+	}
+
+	// Chama ao montar e sempre que mudar de rodada
+	onMount(focarCampoAtual);
+	$: if (typeof window !== 'undefined' && rodadaAtual >= 0) {
+		focarCampoAtual();
+	} // reativa sempre que a rodada muda
+
+	// Lida com a digitação de letras
+	function escreverLetra(event: Event, i: number, j: number) {
+		const input = event.target as HTMLInputElement;
+		let letra = input.value.toUpperCase().slice(-1);
+		if (!/^[A-Z]$/.test(letra)) {
+			letra = '';
+		}
+		tentativas[i][j] = letra;
+
+		if (letra && j < 4) {
+			refs[i][j + 1]?.focus();
+		}
+	}
+
 	// Verifica se o palpite está correto e atualiza as cores
 	function verificarPalpite() {
-		const palpite = tentativas[rodadaAtual].join('').toUpperCase(); // junta as letras da tentativa atual
+		const palpite = tentativas[rodadaAtual].join('').toUpperCase();
+		if (palpite.length < 5 || palpite.length > 5) return;
 
-		if (palpite.length < 5) return; // não verifica se o palpite está incompleto
-
-		// Inicializa todas as cores como "cinza" (letra errada)
 		const coresDaRodada = Array(5).fill('cinza');
-
-		// Marca letras corretas (verde) e letras na posição errada (amarelo)
 		for (let i = 0; i < 5; i++) {
 			const letra = palpite[i];
-
 			if (letra === palavraSecreta[i]) {
-				coresDaRodada[i] = 'verde'; // letra e posição correta
+				coresDaRodada[i] = 'verde';
 			} else if (palavraSecreta.includes(letra)) {
-				coresDaRodada[i] = 'amarelo'; // letra existe, mas está na posição errada
+				coresDaRodada[i] = 'amarelo';
 			}
 		}
 
-		// Atualiza as cores da linha atual
 		cores[rodadaAtual] = coresDaRodada;
 
-		// Verifica se o jogador venceu ou se acabou o número de tentativas
 		const acertou = palpite === palavraSecreta;
 		const acabouTentativas = rodadaAtual === 5;
 
 		if (acertou || acabouTentativas) {
 			jogoFinalizado = true;
-
-			// Aguarda 2 segundos antes de reiniciar o jogo
 			setTimeout(() => reiniciarJogo(), 2000);
 		} else {
-			rodadaAtual++; // passa para a próxima tentativa
+			rodadaAtual++;
 		}
 	}
 
@@ -88,84 +98,125 @@
 		jogoFinalizado = false;
 	}
 
-	// Lida com a digitação de letras
-	function escreverLetra(event: Event, i: number, j: number) {
-		const input = event.target as HTMLInputElement;
-		let letra = input.value.toUpperCase().slice(-1); // pega apenas a última letra
-
-		if (!/^[A-Z]$/.test(letra)) {
-			letra = ''; // limpa se não for letra
-		}
-
-		tentativas[i][j] = letra;
-
-		// Se a letra foi preenchida, move o foco para o próximo campo
-		if (letra && j < 4) {
-			document.getElementById(`input-${i}-${j + 1}`)?.focus();
-		} else if (letra && j === 4) {
-			verificarPalpite(); // chama a verificação ao digitar a última letra
-		}
-	}
-
 	// Permite navegação e edição com teclado
-	function navegarTeclas(event: KeyboardEvent, i: number, j: number) {
-		if (event.key === 'Backspace') {
-			event.preventDefault(); // impede que o campo apague automaticamente
+	function teclas(event: KeyboardEvent, i: number, j: number) {
+		if (event.key === 'Tab' || event.key === 'Arrow') event.preventDefault();
 
+		if (event.key === 'Enter') verificarPalpite();
+
+		if (event.key === 'Backspace') {
+			event.preventDefault();
 			if (tentativas[i][j]) {
-				// Se o campo atual tem letra, apaga
 				tentativas[i][j] = '';
 			} else if (j > 0) {
-				// Volta para o campo anterior e apaga lá
-				document.getElementById(`input-${i}-${j - 1}`)?.focus();
+				refs[i][j - 1]?.focus();
 				tentativas[i][j - 1] = '';
 			}
 		}
+	}
 
-		// Setas para esquerda e direita mudam o foco entre os campos
-		if (event.key === 'ArrowLeft' && j > 0) {
-			document.getElementById(`input-${i}-${j - 1}`)?.focus();
+	function virtualKeyboard(tecla: string) {
+		const palpite = tentativas[rodadaAtual].join('').toUpperCase();
+		if (palpite.length == 0) refs[rodadaAtual][0]?.focus();
+		if (palpite.length >= 5) refs[rodadaAtual][4]?.focus();
+
+		if (jogoFinalizado) return;
+
+		const linha = [...tentativas[rodadaAtual]];
+
+		if (tecla === 'ENTER') {
+			verificarPalpite();
+			return;
 		}
 
-		if (event.key === 'ArrowRight' && j < 4) {
-			document.getElementById(`input-${i}-${j + 1}`)?.focus();
+		if (tecla === '←') {
+			// Remove a última letra preenchida
+			const ultimoPreenchido = linha.findLastIndex((l) => l !== '');
+
+			linha[ultimoPreenchido] = '';
+			tentativas[rodadaAtual] = linha;
+			tentativas = [...tentativas]; // força reatividade
+			// Focar no campo que acabou de ser apagado
+			refs[rodadaAtual][ultimoPreenchido]?.focus();
+			return;
+		}
+
+		if (/^[A-Z]$/.test(tecla)) {
+			const proxima = linha.findIndex((l) => l === '');
+
+			linha[proxima] = tecla;
+			tentativas[rodadaAtual] = linha;
+			tentativas = [...tentativas]; // força reatividade
+			refs[rodadaAtual][proxima]?.focus();
 		}
 	}
 </script>
 
-<!-- Título do jogo -->
-<h1>Termo Simples</h1>
+<div class="container">
+	<div class="top">
+		<button>
+			<a href="/">voltar!!</a>
+		</button>
 
-<!-- Geração da grade de tentativas -->
-{#each tentativas as linha, i}
-	<div class="linha">
-		{#each linha as letra, j}
-			<input
-				id={`input-${i}-${j}`}
-				class="letra {cores[i][j]}"
-				maxlength="1"
-				bind:value={tentativas[i][j]}
-				on:input={(e) => escreverLetra(e, i, j)}
-				on:keydown={(e) => navegarTeclas(e, i, j)}
-				disabled={i !== rodadaAtual || jogoFinalizado}
-				on:mousedown={(e) => e.preventDefault()}
-			/>
-		{/each}
+		<!-- Título do jogo -->
+		<h1>Sopa de Letrinhas</h1>
 	</div>
-{/each}
 
-<!-- Exibe mensagem final quando o jogo termina -->
-{#if jogoFinalizado}
-	<p>
-		{tentativas[rodadaAtual].join('') === palavraSecreta
-			? 'Você acertou!' // Mensagem de vitória
-			: `A palavra era: ${palavraSecreta}`}
-		<!-- Mensagem de erro -->
-		<br />
-		Nova palavra em 3 segundos...
-	</p>
-{/if}
+	<!-- Geração da grade de tentativas -->
+	<table>
+		<tbody>
+			{#each tentativas as linha, i}
+				<tr>
+					{#each linha as letra, j}
+						<td>
+							<input
+								bind:this={refs[i][j]}
+								id={`input-${i}-${j}`}
+								class="letra {cores[i][j]}"
+								maxlength="1"
+								bind:value={tentativas[i][j]}
+								on:input={(e) => escreverLetra(e, i, j)}
+								on:keydown={(e) => teclas(e, i, j)}
+								disabled={i !== rodadaAtual || jogoFinalizado}
+								on:mousedown={(e) => e.preventDefault()}
+								tabindex="-1"
+							/>
+						</td>
+					{/each}
+				</tr>
+			{/each}
+		</tbody>
+	</table>
 
-<style>
-	/* Estilização dos elementos */
-</style>
+	<br />
+
+	<table>
+		<tbody>
+			{#each keyBoard as line, i}
+				<tr class="line">
+					{#each line as key, j}
+						<td class="key">
+							<button
+								on:click={() => virtualKeyboard(key)}
+								class={/^[A-Z]$/.test(key) || key === '←' ? 'letter' : 'letterSp'}
+							>
+								{key}
+							</button>
+						</td>
+					{/each}
+				</tr>
+			{/each}
+		</tbody>
+	</table>
+
+	<!-- Exibe mensagem final quando o jogo termina -->
+	{#if jogoFinalizado}
+		<p>
+			{tentativas[rodadaAtual].join('') === palavraSecreta
+				? 'Você acertou!'
+				: `A palavra era: ${palavraSecreta}`}
+			<br />
+			Nova palavra em 3 segundos...
+		</p>
+	{/if}
+</div>

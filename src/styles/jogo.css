@@ -1,5 +1,18 @@
 body {
-    background-color: aquamarine;
+    background-color: darkslategray;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top {
+    display:flex;
 }
 
 .linha {
@@ -29,4 +42,45 @@ body {
 .cinza {
     background: #787c7e;
     color: white;
+}
+
+.line {
+    display: flex;
+    justify-content: left;
+}
+
+.key {
+    padding: 2px;
+}
+
+.letter {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    background-color: lightsteelblue;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+
+.letter:hover {
+    background-color: lightslategray;
+}
+
+.letterSp {
+    min-width: 50px;
+    width: auto;
+    height: 50px;
+    font-size: 1.5rem;
+    background-color: lightsteelblue;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.letterSp:hover {
+    background-color: lightslategray;
 }
