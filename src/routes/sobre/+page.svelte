@@ -42,9 +42,7 @@
         </div>
 
         <div id="voltar">
-            <button>
-                <a href="/">Voltar</a>
-            </button>
+            <a href="/">Voltar</a>
         </div>
     </div>
 </body>
@@ -80,8 +78,8 @@
         justify-content: center;
         display: flex;
     }
-    #voltar button{
-        margin-top: 50px;
+    #voltar a{
+        margin-top: 30px;
     }
 
 

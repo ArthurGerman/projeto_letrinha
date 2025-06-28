@@ -156,9 +156,7 @@
 	<div class="container">
 		<div class="top">
 			<div id="button">
-				<button>
-					<a href="/">Voltar</a>
-				</button>
+				<a href="/">Voltar</a>
 			</div>
 
 			<!-- Título do jogo -->
