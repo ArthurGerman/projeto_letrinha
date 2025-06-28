@@ -1,10 +1,18 @@
 body {
+    margin: 0;
     background-color: darkslategray;
     height: 100vh;
     display: flex;
     justify-content: center;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -12,7 +20,22 @@ body {
 }
 
 .top {
+    flex-direction: column;
     display:flex;
+}
+#button{
+    display: flex;
+    display: flex;
+    justify-content: center;
+}
+#button button{
+    height: 20px;
+    margin-top: 15px;
+}
+#texto{
+    display: flex;
+    height: 60px;
+    align-items: center;
 }
 
 .linha {

@@ -1,5 +1,5 @@
 <script>
-	import '../styles/main.css';
+	import '../styles/inicio.css';
 </script>
 
 <body>

@@ -152,71 +152,78 @@
 	}
 </script>
 
-<div class="container">
-	<div class="top">
-		<button>
-			<a href="/">voltar!!</a>
-		</button>
+<div class="main">
+	<div class="container">
+		<div class="top">
+			<div id="button">
+				<button>
+					<a href="/">Voltar</a>
+				</button>
+			</div>
 
-		<!-- Título do jogo -->
-		<h1>Sopa de Letrinhas</h1>
+			<div id="texto">
+				<h1>Sopa de Letrinhas</h1>
+			</div>
+	
+			<!-- Título do jogo -->
+		</div>
+	
+		<!-- Geração da grade de tentativas -->
+		<table>
+			<tbody>
+				{#each tentativas as linha, i}
+					<tr>
+						{#each linha as letra, j}
+							<td>
+								<input
+									bind:this={refs[i][j]}
+									id={`input-${i}-${j}`}
+									class="letra {cores[i][j]}"
+									maxlength="1"
+									bind:value={tentativas[i][j]}
+									on:input={(e) => escreverLetra(e, i, j)}
+									on:keydown={(e) => teclas(e, i, j)}
+									disabled={i !== rodadaAtual || jogoFinalizado}
+									on:mousedown={(e) => e.preventDefault()}
+									tabindex="-1"
+								/>
+							</td>
+						{/each}
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	
+		<br />
+	
+		<table>
+			<tbody>
+				{#each keyBoard as line, i}
+					<tr class="line">
+						{#each line as key, j}
+							<td class="key">
+								<button
+									on:click={() => virtualKeyboard(key)}
+									class={/^[A-Z]$/.test(key) || key === '←' ? 'letter' : 'letterSp'}
+								>
+									{key}
+								</button>
+							</td>
+						{/each}
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	
+		<!-- Exibe mensagem final quando o jogo termina -->
+		{#if jogoFinalizado}
+			<p>
+				{tentativas[rodadaAtual].join('') === palavraSecreta
+					? 'Você acertou!'
+					: `A palavra era: ${palavraSecreta}`}
+				<br />
+				Nova palavra em 3 segundos...
+			</p>
+		{/if}
 	</div>
-
-	<!-- Geração da grade de tentativas -->
-	<table>
-		<tbody>
-			{#each tentativas as linha, i}
-				<tr>
-					{#each linha as letra, j}
-						<td>
-							<input
-								bind:this={refs[i][j]}
-								id={`input-${i}-${j}`}
-								class="letra {cores[i][j]}"
-								maxlength="1"
-								bind:value={tentativas[i][j]}
-								on:input={(e) => escreverLetra(e, i, j)}
-								on:keydown={(e) => teclas(e, i, j)}
-								disabled={i !== rodadaAtual || jogoFinalizado}
-								on:mousedown={(e) => e.preventDefault()}
-								tabindex="-1"
-							/>
-						</td>
-					{/each}
-				</tr>
-			{/each}
-		</tbody>
-	</table>
-
-	<br />
-
-	<table>
-		<tbody>
-			{#each keyBoard as line, i}
-				<tr class="line">
-					{#each line as key, j}
-						<td class="key">
-							<button
-								on:click={() => virtualKeyboard(key)}
-								class={/^[A-Z]$/.test(key) || key === '←' ? 'letter' : 'letterSp'}
-							>
-								{key}
-							</button>
-						</td>
-					{/each}
-				</tr>
-			{/each}
-		</tbody>
-	</table>
-
-	<!-- Exibe mensagem final quando o jogo termina -->
-	{#if jogoFinalizado}
-		<p>
-			{tentativas[rodadaAtual].join('') === palavraSecreta
-				? 'Você acertou!'
-				: `A palavra era: ${palavraSecreta}`}
-			<br />
-			Nova palavra em 3 segundos...
-		</p>
-	{/if}
 </div>
