@@ -153,7 +153,11 @@
 
 <div class="container">
 	<div class="top">
-		<a class="button" href="/">Voltar</a>
+		<a class="button" href="/" title="Voltar">
+			<span class="material-symbols-outlined">
+				undo
+			</span>
+		</a>
 
 		<h1>Sopa de Letrinhas</h1>
 	</div>

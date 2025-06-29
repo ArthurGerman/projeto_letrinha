@@ -50,6 +50,10 @@
 	</div>
 
 	<div style="display: flex; justify-content: center; margin-top: 20px;">
-		<a class="voltar" href="/">Voltar</a>
+		<a class="voltar" href="/" title="Voltar">
+            <span class="material-symbols-outlined">
+				undo
+			</span>
+        </a>
 	</div>
 </div>

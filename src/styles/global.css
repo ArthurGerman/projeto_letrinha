@@ -15,6 +15,32 @@ body {
     background-color: darkslategrey;
 }
 
+
+#muda_tema{
+    background-color: transparent;
+}
+#muda_tema span:hover{
+    color: rgb(102, 145, 255);
+}
+body.light-theme {
+    background-color: whitesmoke;
+    color: black;
+}
+
+body.light-theme .menu {
+    border-color: black;
+    color: black;
+}
+body.light-theme .menu:hover{
+    color: rgb(102, 145, 255);
+    border-color: rgb(102, 145, 255);
+}
+
+body.light-theme h1 {
+    color: black;
+}
+
+
 .container {
     margin-top: 1%;
     height: 50vh;
