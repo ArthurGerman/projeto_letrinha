@@ -1,0 +1,64 @@
+html,
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex: content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: darkslategrey;
+}
+
+.container {
+    margin-top: 1%;
+    height: 50vh;
+    display: flex;
+    flex: content;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+
+h1 {
+    color: black;
+    font-weight: bold;
+    font-family: verdana;
+}
+
+.menu {
+    display: block;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 20%;
+    padding: 5px;
+    color: black;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu:hover {
+    color: rgb(102, 145, 255);
+}
+
+/* .menu::after{
+    content: " ";
+    width: 0%;
+    height: 2px;
+    background-color: rgb(102, 145, 255);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.menu:hover::after{
+    width: 102%;
+} */

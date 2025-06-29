@@ -1,21 +1,12 @@
 <script>
-	import '../styles/inicio.css';
+	import '../styles/global.css';
 </script>
 
-<body>
-	<div id="container">
-		<div style="background-color: aqua;">
-			<h1>Sopa de Letrinhas</h1>
-		</div>
+<div class="container">
+	<h1>Sopa de Letrinhas</h1>
 
-		<div style="background-color: blueviolet;"> <!--Essas cores locais são apenas para localizar visualmente as divs no body-->
-			<div>
-				<a href="/jogo">Jogo</a>
-			</div>
-
-			<div>
-				<a href="/sobre">Sobre</a>
-			</div>
-		</div>
-	</div>
-</body>
+	<br />
+	<a class="menu" href="/jogo">Jogo</a>
+	<br />
+	<a class="menu" href="/sobre">Sobre</a>
+</div>

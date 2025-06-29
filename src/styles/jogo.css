@@ -1,45 +1,23 @@
-body {
-    margin: 0;
-    background-color: rgb(221, 221, 221);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-family: cursive;
-}
-.main {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .top {
-    flex-direction: column;
+    height: 50px;
     display:flex;
-}
-#button{
-    display: flex;
-    display: flex;
-    justify-content: center;
-}
-#button a{
-    margin-top: 15px;
-}
-#texto{
-    display: flex;
-    height: 60px;
     align-items: center;
 }
 
-.linha {
-    display: flex;
-    margin-bottom: 8px;
+.button{
+    display: block;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: auto;
+    padding: 5px;
+    margin-right: 20px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+.button:hover {
+    color: rgb(102, 145, 255);
 }
 
 .letra {
@@ -99,8 +77,8 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 .letterSp:hover {
