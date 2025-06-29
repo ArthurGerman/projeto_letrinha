@@ -12,7 +12,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: darkslategrey;
+    background-color: whitesmoke;
+    /*background-color: darkslategrey;*/
 }
 
 
@@ -22,22 +23,36 @@ body {
 #muda_tema span:hover{
     color: rgb(102, 145, 255);
 }
-body.light-theme {
-    background-color: whitesmoke;
-    color: black;
+body.dark-theme #muda_tema span{
+    color: green;
 }
-
-body.light-theme .menu {
-    border-color: black;
-    color: black;
+body.dark-theme #muda_tema span:hover{
+    color: rgb(0, 84, 0);
 }
-body.light-theme .menu:hover{
-    color: rgb(102, 145, 255);
-    border-color: rgb(102, 145, 255);
+body.dark-theme {
+    background-color: rgb(21, 21, 21);
+    color: green;
 }
-
-body.light-theme h1 {
-    color: black;
+body.dark-theme .menu {
+    border-color: green;
+    color: green;
+    text-shadow: 
+    -2px -2px 0 #000,
+    -2px -2px 0 #000,
+    -2px -2px 0 #000,
+    -2px -2px 0 #000;
+}
+body.dark-theme .menu:hover{
+    color: rgb(0, 84, 0);
+    border-color: rgb(0, 84, 0);
+}
+body.dark-theme h1 {
+    color: green;
+    text-shadow: 
+    -3px -3px 0 #000,
+    -3px -3px 0 #000,
+    -3px -3px 0 #000,
+    -3px -3px 0 #000;
 }
 
 
@@ -51,7 +66,7 @@ body.light-theme h1 {
     font-size: 25px;
 }
 
-h1 {
+.menu,h1 {
     color: black;
     font-weight: bold;
     font-family: verdana;

@@ -20,6 +20,13 @@
     color: rgb(102, 145, 255);
 }
 
+body.dark-theme .button{
+    color: green;
+}
+body.dark-theme .button:hover{
+    color: rgb(0,84,0);
+}
+
 .letra {
     width: 50px;
     height: 50px;
