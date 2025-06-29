@@ -18,31 +18,11 @@
 	</div>
 
 	<div id="table">
-		<table class="sobre" border="2">
+		<table class="sobre">
 			<tbody>
 				<tr>
 					<td class="sobre">
-						<p>Membro 1</p>
-					</td>
-
-					<td class="sobre">
-						<p>Membro 2</p>
-					</td>
-
-					<td class="sobre">
-						<p>Membro 3</p>
-					</td>
-
-					<td class="sobre">
-						<p>Membro 4</p>
-					</td>
-
-					<td class="sobre">
-						<p>Membro 5</p>
-					</td>
-					
-					<td class="sobre">
-						<p>Membro 6</p>
+						<img src="/ifpe_logo.png" alt="" style="height: 200px;">
 					</td>
 				</tr>
 			</tbody>
