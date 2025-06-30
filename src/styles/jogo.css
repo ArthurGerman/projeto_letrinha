@@ -17,14 +17,14 @@
     text-decoration: none;
 }
 .button:hover {
-    color: rgb(102, 145, 255);
+    color: var(--hover_light);
 }
 
 body.dark-theme .button{
-    color: green;
+    color: var(--FontColor_dark);
 }
 body.dark-theme .button:hover{
-    color: rgb(0,84,0);
+    color: var(--hover_dark);
 }
 
 .letra {

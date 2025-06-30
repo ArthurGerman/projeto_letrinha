@@ -4,7 +4,17 @@ body {
     width: 100%;
     height: 100%;
 }
+:root{ /*Vou preferir usar o ':root' porque serve pra definir variáveis de cores globais que podem ser usadas em todo o arquivo*/
+    /*Tema claro*/
+    --bg_light: rgb(225, 225, 225); /*Background claro*/
+    --FontColor_light: black; /*Cor da fonte no tema claro*/
+    --hover_light: rgb(102,154,255); /*Cor do hover no tema claro*/
 
+    /*Tema escuro*/
+    --bg_dark: rgb(40, 40, 40);
+    --FontColor_dark: whitesmoke;
+    --hover_dark: rgb(0, 192, 0);
+}
 body {
     margin: 0;
     display: flex;
@@ -12,7 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: whitesmoke;
+    background-color: var(--bg_light);
     /*background-color: darkslategrey;*/
 }
 
@@ -20,22 +30,25 @@ body {
 #muda_tema{
     background-color: transparent;
 }
+#muda_tema span{
+    color: var(--FontColor_light);
+}
 #muda_tema span:hover{
-    color: rgb(102, 145, 255);
+    color: var(--hover_light);
 }
 body.dark-theme #muda_tema span{
-    color: green;
+    color: var(--FontColor_dark);
 }
 body.dark-theme #muda_tema span:hover{
-    color: rgb(0, 84, 0);
+    color: var(--hover_dark);
 }
 body.dark-theme {
-    background-color: rgb(21, 21, 21);
-    color: green;
+    background-color: var(--bg_dark);
+    color: var(--FontColor_dark);
 }
 body.dark-theme .menu {
-    border-color: green;
-    color: green;
+    border-color: var(--FontColor_dark);
+    color: var(--FontColor_dark);
     text-shadow: 
     -2px -2px 0 #000,
     -2px -2px 0 #000,
@@ -43,11 +56,11 @@ body.dark-theme .menu {
     -2px -2px 0 #000;
 }
 body.dark-theme .menu:hover{
-    color: rgb(0, 84, 0);
-    border-color: rgb(0, 84, 0);
+    color: var(--hover_dark);
+    border-color: var(--hover_dark);
 }
 body.dark-theme h1 {
-    color: green;
+    color: var(--FontColor_dark);
     text-shadow: 
     -3px -3px 0 #000,
     -3px -3px 0 #000,
@@ -67,9 +80,9 @@ body.dark-theme h1 {
 }
 
 .menu,h1 {
-    color: black;
-    font-weight: bold;
-    font-family: verdana;
+    color: var(--FontColor_light);
+    font-weight: 400;
+    font-family: "Luckiest Guy", cursive;
 }
 
 .menu {
@@ -79,14 +92,14 @@ body.dark-theme h1 {
     border-radius: 5px;
     width: 20%;
     padding: 5px;
-    color: black;
+    color: var(--FontColor_light);
     margin-bottom: 10px;
     text-align: center;
     text-decoration: none;
 }
 
 .menu:hover {
-    color: rgb(102, 145, 255);
+    color: var(--hover_light);
 }
 
 /* .menu::after{

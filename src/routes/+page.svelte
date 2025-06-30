@@ -1,9 +1,17 @@
 <script lang="ts">
 	import '../styles/global.css';
 
+	if (typeof window !== 'undefined'){
+		const temaSalvo = localStorage.getItem('tema');
+
+		if (temaSalvo == 'dark'){
+			document.body.classList.add("dark-theme");
+		}
+	}
 	function mudarTema(event:MouseEvent){
 		event.preventDefault();
-		document.body.classList.toggle("dark-theme")
+		const isDark = document.body.classList.toggle("dark-theme")
+		localStorage.setItem('tema', isDark ? 'dark' : 'light');
 	}
 </script>
 
@@ -18,7 +26,7 @@
 	<h1>Sopa de Letrinhas</h1>
 
 	<br />
-	<a class="menu" href="/jogo">Jogo</a>
+	<a class="menu" href="/jogo">Jogar</a>
 	<br />
 	<a class="menu" href="/sobre">Sobre</a>
 </div>
