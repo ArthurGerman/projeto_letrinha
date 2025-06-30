@@ -1,10 +1,10 @@
 .top {
     height: 50px;
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
-.button{
+.button {
     display: block;
     border-style: solid;
     border-width: 3px;
@@ -16,38 +16,54 @@
     text-align: center;
     text-decoration: none;
 }
+
 .button:hover {
     color: var(--hover_light);
 }
 
-body.dark-theme .button{
+body.dark-theme .button {
     color: var(--FontColor_dark);
 }
-body.dark-theme .button:hover{
+
+body.dark-theme .button:hover {
     color: var(--hover_dark);
 }
 
-.letra {
+td.bloco {
     width: 50px;
     height: 50px;
-    font-size: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
     text-align: center;
-    margin-right: 4px;
+    vertical-align: middle;
+    background-color: white;
+}
+
+td.bloco span {
+    font-size: 1rem;
+    font-weight: bold;
     text-transform: uppercase;
+    color: black;
+    display: inline-block;
+    line-height: 50px;
+}
+
+.bloco-atual {
+    border-bottom: 4px solid #2a76f4 !important;
 }
 
 .verde {
-    background: #6aaa64;
+    background: #6aaa64 !important;
     color: white;
 }
 
 .amarelo {
-    background: #c9b458;
+    background: #c9b458 !important;
     color: white;
 }
 
 .cinza {
-    background: #787c7e;
+    background: #787c7e !important;
     color: white;
 }
 
