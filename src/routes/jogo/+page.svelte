@@ -146,7 +146,7 @@
 	</div>
 
 	<!-- Geração da grade de tentativas -->
-	<table>
+	<table style="margin-top: 10px;">
 		<tbody>
 			{#each tentativas as linha, i}
 				<tr>
