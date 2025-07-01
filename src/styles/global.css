@@ -6,68 +6,43 @@ body {
 }
 :root{ /*Vou preferir usar o ':root' porque serve pra definir variáveis de cores globais que podem ser usadas em todo o arquivo*/
     /*Tema claro*/
-    --bg_light: rgb(225, 225, 225); /*Background claro*/
+    --bg_light: rgb(225,225,225); /*Background claro rgb(225,225,225)*/
     --FontColor_light: black; /*Cor da fonte no tema claro*/
-    --hover_light: rgb(102,154,255); /*Cor do hover no tema claro*/
+    --hover_light: rgb(102,154,255); /*Cor do hover no tema claro rgb(102,154,255)*/
 
     /*Tema escuro*/
-    --bg_dark: rgb(40, 40, 40);
+    --bg_dark: rgb(40,40,40);
     --FontColor_dark: whitesmoke;
     --hover_dark: rgb(0, 192, 0);
+
+    /*Cores do teclado --> kb significa keyboard */
+    --kb_light: lightsteelblue;
+    --kb_light-hover: lightslategray;
+
+    --kb_dark: rgb(142, 142, 142);
+    --kb_dark-hover: var(--hover_dark);
 }
-body {
+
+/*@keyframes degrade-animado{
+    0%{
+        background-position-x: 0%;
+    }
+    100%{
+        background-position-x: 100%;
+    }
+}*/
+
+body { /*Estilização do body global*/
     margin: 0;
     display: flex;
     flex: content;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg_light);
-    /*background-color: darkslategrey;*/
+    background: var(--bg_light);
+    /*animation: degrade-animado 10s infinite alternate;
+    background-size: 5000%, 100%;*/
 }
-
-
-#muda_tema{
-    background-color: transparent;
-}
-#muda_tema span{
-    color: var(--FontColor_light);
-}
-#muda_tema span:hover{
-    color: var(--hover_light);
-}
-body.dark-theme #muda_tema span{
-    color: var(--FontColor_dark);
-}
-body.dark-theme #muda_tema span:hover{
-    color: var(--hover_dark);
-}
-body.dark-theme {
-    background-color: var(--bg_dark);
-    color: var(--FontColor_dark);
-}
-body.dark-theme .menu {
-    border-color: var(--FontColor_dark);
-    color: var(--FontColor_dark);
-    text-shadow: 
-    -2px -2px 0 #000,
-    -2px -2px 0 #000,
-    -2px -2px 0 #000,
-    -2px -2px 0 #000;
-}
-body.dark-theme .menu:hover{
-    color: var(--hover_dark);
-    border-color: var(--hover_dark);
-}
-body.dark-theme h1 {
-    color: var(--FontColor_dark);
-    text-shadow: 
-    -3px -3px 0 #000,
-    -3px -3px 0 #000,
-    -3px -3px 0 #000,
-    -3px -3px 0 #000;
-}
-
 
 .container {
     margin-top: 1%;
@@ -79,6 +54,7 @@ body.dark-theme h1 {
     font-size: 25px;
 }
 
+/*Estilização referente ao "light-mode" que é o primeiro a ser carregado.*/
 .menu,h1 {
     color: var(--FontColor_light);
     font-weight: 400;
@@ -97,10 +73,65 @@ body.dark-theme h1 {
     text-align: center;
     text-decoration: none;
 }
-
 .menu:hover {
     color: var(--hover_light);
 }
+
+
+.theme{
+    width:100%;
+    display:flex;
+    justify-content: right;
+}
+#muda_tema{ /*Estilização do botão de switch*/
+    background-color: transparent;
+    border: none;
+    margin-right:30px;
+    margin-top:20px
+}
+#muda_tema span{
+    color: var(--FontColor_light);
+}
+#muda_tema span:hover{
+    color: var(--hover_light);
+}
+
+
+
+/*Estilização referente ao "dark-mode"*/
+body.dark-theme {
+    background: var(--bg_dark);
+    color: var(--FontColor_dark);
+}
+body.dark-theme #muda_tema span{
+    color: var(--FontColor_dark);
+}
+body.dark-theme #muda_tema span:hover{
+    color: var(--hover_dark);
+}
+body.dark-theme .menu {
+    border-color: var(--FontColor_dark);
+    color: var(--FontColor_dark);
+    text-shadow: 
+    -2px -2px 0 black,
+    -2px -2px 0 black,
+    -2px -2px 0 black,
+    -2px -2px 0 black;
+}
+body.dark-theme .menu:hover{
+    color: var(--hover_dark);
+    border-color: var(--hover_dark);
+}
+body.dark-theme h1 {
+    color: var(--FontColor_dark);
+    text-shadow: 
+    -3px -3px 0 black,
+    -3px -3px 0 black,
+    -3px -3px 0 black,
+    -3px -3px 0 black;
+}
+
+
 
 /* .menu::after{
     content: " ";

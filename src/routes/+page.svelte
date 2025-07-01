@@ -15,8 +15,8 @@
 	}
 </script>
 
-<div class="theme" style="width:100%; display:flex; justify-content: right;">
-	<button title="Mudar tema" id="muda_tema" on:click={mudarTema} style="border: none; margin-right:30px; margin-top:20px">
+<div class="theme">
+	<button title="Mudar tema" id="muda_tema" on:click={mudarTema}>
 		<span class="material-symbols-outlined">
 			routine
 		</span>
