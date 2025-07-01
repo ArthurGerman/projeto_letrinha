@@ -15,14 +15,14 @@
 	}
 </script>
 
+<div class="theme" style="width:100%; display:flex; justify-content: right;">
+	<button title="Mudar tema" id="muda_tema" on:click={mudarTema} style="border: none; margin-right:30px; margin-top:20px">
+		<span class="material-symbols-outlined">
+			routine
+		</span>
+	</button>
+</div>
 <div class="container">
-	<div class="theme">
-		<button title="Mudar tema" id="muda_tema" on:click={mudarTema} style="border: none;">
-			<span class="material-symbols-outlined">
-				routine
-			</span>
-		</button>
-	</div>
 	<h1>Sopa de Letrinhas</h1>
 
 	<br />
