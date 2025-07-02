@@ -1,29 +1,60 @@
 <script lang="ts">
+	// ==============================================
+	// 1. IMPORTS
+	// ==============================================
+	
+	// Importa o hook 'onMount' do Svelte para executar código quando o componente é renderizado
 	import { onMount } from 'svelte';
+
+	// Importa a lista de palavras do arquivo .ts
 	import { palavras } from '../../palavras';
 
-	// Estado inicial do jogo
-	let palavraSecreta = escolherPalavraAleatoria();
+	// ==============================================
+	// 2. ESTADOS DO JOGO (VARIÁVEIS REATIVAS)
+	// ==============================================
+	
+	// Estado inicial
+	// Palavra secreta que o jogador precisa adivinhar (escolhida aleatoriamente)
+	let palavraSecreta : string = escolherPalavraAleatoria();
+
+	// Matriz 6x5 que armazena as tentativas do jogador
+	// - Array(6): cria um array com 6 posições
+	// - .fill(''): preenche cada posição com string vazia
+	// - .map(() => Array(5).fill('')): cria um array de 5 strings vazias para cada linha
 	let tentativas = Array(6)
 		.fill('')
 		.map(() => Array(5).fill(''));
+
+
+	// Matriz 6x5 que armazena as cores de feedback para cada letra
+	// - 'cinza': letra não existe na palavra
+	// - 'amarelo': letra existe mas em posição errada
+	// - 'verde': letra correta na posição certa
 	let cores = Array(6)
 		.fill('')
 		.map(() => Array(5).fill(''));
-	let rodadaAtual = 0;
-	let jogoFinalizado = false;
-	let letraAtual = 0;
 
-	// array com as letras do teclado virtual
+
+	
+	let rodadaAtual : number = 0; // Controla a rodada atual (0 até 5)
+	let jogoFinalizado : boolean = false; //Indica se o jogo terminou
+	let letraAtual : number = 0; // Controla a posição atual da letra sendo digitada
+
+	// array de duas dimensões com as letras do teclado virtual
 	const keyBoard: string[][] = [
 		['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
 		['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '←'],
 		['Z', 'X', 'C', 'V', 'B', 'N', 'M', 'ENTER']
 	];
 
+
+	// ==============================================
+	// 3. FUNÇÕES PRINCIPAIS
+	// ==============================================
+
 	// Escolhe aleatoriamente uma palavra da lista
 	function escolherPalavraAleatoria() {
-		const indiceAleatorio = Math.floor(Math.random() * palavras.length);
+		const indiceAleatorio = Math.floor(Math.random() * palavras.length); // Math.floor faz arredondamento de número, já o Math.random gera números aleatórios
 		return palavras[indiceAleatorio];
 	}
 
@@ -34,16 +65,16 @@
 
 		const coresDaRodada = Array(5).fill('cinza');
 		const letrasSecretas = palavraSecreta.toUpperCase().split('');
-		const letrasUsadas = Array(5).fill(false);
+		const letrasUsadas = Array(5).fill(false); // Separa a palavra secreta em letras individuais
 
-		for (let i = 0; i < 5; i++) {
+		for (let i = 0; i < 5; i++) { // Esse loop marca as letras corretas na posição verde
 			if (palpite[i] === letrasSecretas[i]) {
 				coresDaRodada[i] = 'verde';
 				letrasUsadas[i] = true;
 			}
 		}
 
-		for (let i = 0; i < 5; i++) {
+		for (let i = 0; i < 5; i++) { // Esse loop marca letras corretas na posição errada de amarelo
 			if (coresDaRodada[i] === 'cinza') {
 				for (let j = 0; j < 5; j++) {
 					if (!letrasUsadas[j] && palpite[i] === letrasSecretas[j]) {
@@ -55,11 +86,12 @@
 			}
 		}
 
-		cores[rodadaAtual] = coresDaRodada;
+		cores[rodadaAtual] = coresDaRodada; // Atualiza a matriz de cores com o resultado da rodada
 
+		// verifica se terminou o jogo ou não
 		if (palpite === palavraSecreta || rodadaAtual === 5) {
 			jogoFinalizado = true;
-			setTimeout(() => reiniciarJogo(), 3000);
+			setTimeout(() => reiniciarJogo(), 3000); // 3000 ms equivalem a 3 segundos
 		} else {
 			rodadaAtual++;
 		}
@@ -68,12 +100,14 @@
 	// Reinicia o jogo com uma nova palavra
 	function reiniciarJogo() {
 		palavraSecreta = escolherPalavraAleatoria();
-		tentativas = Array(6)
+		tentativas = Array(6) // Reseta as tentativas(matriz 6x5 vazia)
 			.fill('')
 			.map(() => Array(5).fill(''));
-		cores = Array(6)
+		cores = Array(6) // Reseta as cores
 			.fill('')
 			.map(() => Array(5).fill(''));
+
+		// Aqui reinicia os contadores
 		rodadaAtual = 0;
 		jogoFinalizado = false;
 	}
