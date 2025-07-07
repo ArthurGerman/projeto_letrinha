@@ -1,5 +1,8 @@
 <script>
     import '../../styles/jogo.css';
+    import { tema } from '../../stores/tema';
 </script>
 
-<slot />
+<div class="app" class:dark-theme={$tema === 'dark'}>
+	<slot />
+</div>

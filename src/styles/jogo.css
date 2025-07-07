@@ -21,11 +21,11 @@
     color: var(--hover_light);
 }
 
-body.dark-theme .button {
+.dark-theme .button {
     color: var(--FontColor_dark);
 }
 
-body.dark-theme .button:hover {
+.dark-theme .button:hover {
     color: var(--hover_dark);
 }
 
@@ -107,15 +107,15 @@ td.bloco span {
 }
 
 /*Estilização do teclado no "dark-theme"*/
-body.dark-theme .letter{
+.dark-theme .letter{
     background-color: var(--kb_dark);
 }
-body.dark-theme .letterSp{
+.dark-theme .letterSp{
     background-color: var(--kb_dark);
 }
-body.dark-theme .letter:hover{
+.dark-theme .letter:hover{
     background-color: var(--kb_dark-hover);
 }
-body.dark-theme .letterSp:hover{
+.dark-theme .letterSp:hover{
     background-color: var(--kb_dark-hover);
 }

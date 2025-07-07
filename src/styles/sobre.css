@@ -37,10 +37,10 @@
     color: var(--hover_light);
 }
 
-body.dark-theme .voltar{
+.dark-theme .voltar{
     color: var(--FontColor_dark);
 }
-body.dark-theme .voltar:hover{
+.dark-theme .voltar:hover{
     color: var(--hover_dark);
 }
 

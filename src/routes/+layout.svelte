@@ -1,5 +1,7 @@
-<script>
-    import '../styles/global.css';
+<script lang="ts">
+	import { tema } from '../stores/tema';
 </script>
 
-<slot />
+<div class:dark-theme={$tema === 'dark'}>
+	<slot />
+</div>
