@@ -137,8 +137,8 @@
 <div class="container">
 	<!-- header -->
 	<div class="top">
-		<a class="button" href="/" title="Voltar">
-			<span class="material-symbols-outlined"> undo </span>
+		<a class="voltar" id="voltar-jogo" href="/" title="Voltar">
+			<span class="material-symbols-outlined"> undo </span> <!--"undo" é o símbolo de seta que importamos do Google Fonts-->
 		</a>
 
 		<h1>Sopa de Letrinhas</h1>

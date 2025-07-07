@@ -1,55 +1,49 @@
-#container {
+.sobre { /* Estilização da div "sobre"*/
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 100vh;
+    height: 100vh;;
 }
 
-#table {
-    display: flex;
-    justify-content: center;
-}
-
-#sobre {
+/* Estilização da classe "texto" que contém o parágrafo e a lista de membros.*/
+.texto {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-
-#sobre p {
+.texto p {
     width: 40%;
     text-align: center;
 }
 
-.voltar{
-    display: block;
-    border-style: solid;
-    border-width: 3px;
-    border-radius: 5px;
-    width: 5%;
-    padding: 5px;
-    margin-top: 5px;
-    color: var(--FontColor_light);
-    text-align: center;
-    text-decoration: none;
-}
-.voltar:hover {
-    color: var(--hover_light);
-}
 
-.dark-theme .voltar{
-    color: var(--FontColor_dark);
-}
-.dark-theme .voltar:hover{
-    color: var(--hover_dark);
-}
 
-table.sobre {
+/* Estilização referente a div e a tabela da classe "table" que suportam a imagem.*/
+div.table {
+    display: flex;
+    justify-content: center;
+}
+table.table {
     margin-top: 30px;
 }
-
-td.sobre {
+#img { /* Estilização da célula da tabela que contém a imagem do logotipo do IFPE*/
     padding: 10px;
     width: 150px;
     height: 200px;
+}
+#img img{
+    height: 200px; /* Tamanho da imagem*/
+}
+
+
+/* Estilização da div de id "voltar" e do botão de id "voltar-sobre"*/
+/* Preferi usar o id "voltar" e não a classe "voltar" na div pois a classe "voltar" já está sendo usada nos botões e a formatação da classe não serve para esta div*/
+div#voltar{
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px;
+}
+#voltar-sobre { /* Estilização específica para o botão voltar da página do "Sobre". Além dos estilos da classe geral "voltar", também estamos aplicando estilos específicos.*/
+    width: 5%; 
+    margin-top: 5px
 }

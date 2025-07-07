@@ -10,16 +10,15 @@
 <div class="container">
 	<div class="theme">
 		<button title="Mudar tema" id="muda_tema" on:click={mudarTema}>
-			<span class="material-symbols-outlined"> routine </span>
+			<span class="material-symbols-outlined"> routine </span> <!--"routine" é o símbolo de sol/lua que importamos do Google Fonts-->
 		</button>
 	</div>
 
 	<div class="menu">
 		<h1>Sopa de Letrinhas</h1>
 
+		<a class="options" href="/jogo" title="Jogar">Jogar</a>
 		<br />
-		<a class="options" href="/jogo">Jogar</a>
-		<br />
-		<a class="options" href="/sobre">Sobre</a>
+		<a class="options" href="/sobre" title="Sobre o jogo">Sobre</a>
 	</div>
 </div>

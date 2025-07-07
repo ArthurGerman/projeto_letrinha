@@ -1,5 +1,5 @@
-<div id="container">
-	<div id="sobre">
+<div class="sobre">
+	<div class="texto">
 		<h1>Sobre o jogo</h1>
 		<p>
 			Este atividade refere-se ao projeto de jogo realizado no final do semestre, feito à pedido do
@@ -8,32 +8,30 @@
 		</p>
 
 		<ul>
-			<li>Arthur Germano;</li>
-			<li>Elder da Silva;</li>
-			<li>Guilherme Evaristo;</li>
-			<li>Lucas Bezerra;</li>
-			<li>Renato Aprígio;</li>
-			<li>Thiago Henrique.</li>
+			<li>Arthur Germano da Cunha Silva;</li>
+			<li>Elder da Silva Macena;</li>
+			<li>Guilherme Evaristo da Paz;</li>
+			<li>Lucas Bezerra da Silva;</li>
+			<li>Renato Aprígio de Lima Neto;</li>
+			<li>Thiago Henrique Siqueira dos Santos.</li>
 		</ul>
 	</div>
 
-	<div id="table">
-		<table class="sobre">
+	<div class="table">
+		<table class="table">
 			<tbody>
 				<tr>
-					<td class="sobre">
-						<img src="/ifpe_logo.png" alt="" style="height: 200px;">
+					<td id="img">
+						<img src="/ifpe_logo.png" alt="Logotipo do IFPE">
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 
-	<div style="display: flex; justify-content: center; margin-top: 20px;">
-		<a class="voltar" href="/" title="Voltar">
-            <span class="material-symbols-outlined">
-				undo
-			</span>
+	<div id="voltar">
+		<a class="voltar" id="voltar-sobre" href="/" title="Voltar">
+            <span class="material-symbols-outlined">undo</span> <!--"undo" é o símbolo de seta que importamos do Google Fonts-->
         </a>
 	</div>
 </div>

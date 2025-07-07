@@ -6,22 +6,26 @@ body {
     margin: 0%;
 }
 
-:root {
-    --bg_light: rgb(225,225,225);
-    --FontColor_light: black;
-    --hover_light: rgb(102,154,255);
+:root { /* O grupo root serve para definir variáveis globais a serem usadas pelo código */
+    /* TEMA CLARO*/
+    --bg_light: rgb(225,225,225); /* Backgound claro*/
+    --FontColor_light: black; /* Cor da fonte no tema claro*/
+    --hover_light: rgb(102,154,255); /* Cor do hover no tema claro*/
 
-    --bg_dark: rgb(40,40,40);
-    --FontColor_dark: whitesmoke;
-    --hover_dark: rgb(0, 192, 0);
+    /* TEMA ESCURO*/
+    --bg_dark: rgb(40,40,40); /* Backgound escuro*/
+    --FontColor_dark: whitesmoke; /* Cor da fonte no tema escuro*/
+    --hover_dark: rgb(0, 192, 0); /* Cor do hover no tema escuro*/
 
-    --kb_light: lightsteelblue;
-    --kb_light-hover: lightslategray;
+    /* Estilização das cores do teclado virtual*/
+    --kb_light: lightsteelblue; /* Teclado no tema ma claro*/
+    --kb_light-hover: lightslategray; /* Hover do teclado no tema claro*/
 
-    --kb_dark: rgb(142, 142, 142);
-    --kb_dark-hover: var(--hover_dark);
+    --kb_dark: rgb(142, 142, 142); /* Teclado no tema escuro*/
+    --kb_dark-hover: var(--hover_dark); /* Hover do teclado no tema escuro*/
 }
 
+/*****EFEITO DE DEGRADÊ ANIMADO(VAI SER USADO DEPOIS)*****/
 /*@keyframes degrade-animado{
     0%{
         background-position-x: 0%;
@@ -46,16 +50,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
-
-.menu,
-h1 {
+.menu, h1 {
     color: var(--FontColor_light);
     font-weight: 400;
     font-family: "Luckiest Guy", cursive;
 }
+.sobre{ /* Optei por usar uma outra classe para a div que comporta todos os elemetos do "Sobre", pois a div de classe "container" não estava servindo para o que nós estávamos inserindo, visto que, possui atributos diferente dos necessários para o "Sobre".*/
+    background-color: var(--bg_light);
+}
 
-.menu.options {
+/* Estilização dos links da classe "options"(Jogar e Sobre).*/
+a.options {
     display: block;
     border-style: solid;
     border-width: 3px;
@@ -67,49 +74,65 @@ h1 {
     text-align: center;
     text-decoration: none;
 }
-
-.menu:hover.options {
-    color: var(--hover_light);
+a.options:hover{
+    color: var(--hover_light)
 }
 
+
+
+
+/*Estilização referente a div de id "theme" e ao botão de switch que está dentro desta div*/
 .theme {
     width: 100%;
     display: flex;
     justify-content: right;
-    margin-bottom: 10%;
 }
-
-#muda_tema {
-    /*Estilização do botão de switch*/
+#muda_tema { /*Estilização do botão de switch*/
     background-color: transparent;
     border: none;
     margin-right: 30px;
-    margin-top: 20px
+    margin-top: 20px;
 }
-
 #muda_tema span {
     color: var(--FontColor_light);
+    cursor: pointer;
 }
-
 #muda_tema span:hover {
     color: var(--hover_light);
 }
 
+
+
+/*Estilização dos botões de voltar(os botões de voltar são comuns ao jogo e ao sobre)*/
+.voltar{
+    display: block;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    padding: 5px;
+    color: var(--FontColor_light);
+    text-align: center;
+    text-decoration: none;
+}
+.voltar:hover {
+    color: var(--hover_light);
+}
+
+
+
 /*Estilização referente ao "dark-mode"*/
 /* ========== TEMA ESCURO USANDO .dark-theme NA DIV ========== */
+
 .dark-theme .container {
     background: var(--bg_dark);
     color: var(--FontColor_dark);
 }
-
 .dark-theme #muda_tema span {
     color: var(--FontColor_dark);
 }
-
 .dark-theme #muda_tema span:hover {
     color: var(--hover_dark);
 }
-
 .dark-theme .menu {
     border-color: var(--FontColor_dark);
     color: var(--FontColor_dark);
@@ -119,12 +142,10 @@ h1 {
         -2px -2px 0 black,
         -2px -2px 0 black;
 }
-
 .dark-theme .menu:hover {
     color: var(--hover_dark);
     border-color: var(--hover_dark);
 }
-
 .dark-theme h1 {
     color: var(--FontColor_dark);
     text-shadow:
@@ -133,9 +154,24 @@ h1 {
         -3px -3px 0 black,
         -3px -3px 0 black;
 }
+.dark-theme .sobre{
+    background: var(--bg_dark);
+    color: var(--FontColor_dark);
+}
+.dark-theme a.options{
+    color: var(--FontColor_dark);
+}
+.dark-theme a.options:hover{
+    color: var(--hover_dark);
+}
+.dark-theme .voltar{
+    color: var(--FontColor_dark);
+}
+.dark-theme .voltar:hover{
+    color: var(--hover_dark);
+}
 
-
-
+/*=======EFEITO DE LINHA=======*/
 /* .menu::after{
     content: " ";
     width: 0%;

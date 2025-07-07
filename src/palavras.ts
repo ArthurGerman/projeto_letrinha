@@ -1,2 +1,1 @@
-export const palavras = ["CASAS"];
-const test = ["CASAS", "LIVRO", "TORRE", "FALTA", "BOMBA", "MUNDO"];
+export const palavras = ["CASAS", "LIVRO", "TORRE", "FALTA", "BOMBA", "MUNDO"];
