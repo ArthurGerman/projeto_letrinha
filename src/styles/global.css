@@ -87,17 +87,23 @@ a.options:hover{
     display: flex;
     justify-content: right;
 }
-#muda_tema { /*Estilização do botão de switch*/
+#muda_tema, #musica{ /*Estilização geral dos botões de switch(música e tema de cor)*/
     background-color: transparent;
     border: none;
-    margin-right: 30px;
     margin-top: 20px;
 }
-#muda_tema span {
+/* Estilização específica dos dois botões abaixo*/
+#muda_tema{ 
+    margin-right: 30px;
+}
+#musica{
+    margin-right: 10px;
+}
+#muda_tema span, #musica span {
     color: var(--FontColor_light);
     cursor: pointer;
 }
-#muda_tema span:hover {
+#muda_tema span:hover, #musica span:hover {
     color: var(--hover_light);
 }
 
@@ -131,6 +137,12 @@ a.options:hover{
     color: var(--FontColor_dark);
 }
 .dark-theme #muda_tema span:hover {
+    color: var(--hover_dark);
+}
+.dark-theme #musica span{
+    color: var(--FontColor_dark);
+}
+.dark-theme #musica span:hover{
     color: var(--hover_dark);
 }
 .dark-theme .menu {
