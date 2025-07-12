@@ -66,7 +66,7 @@ td.bloco span {
     height: 50px;
     font-size: 1.2rem;
     background-color: var(--kb_light);
-    border: none;
+    border: 1px solid rgb(169, 169, 169);
     border-radius: 4px;
     cursor: pointer;
 
@@ -78,7 +78,7 @@ td.bloco span {
     height: 50px;
     font-size: 1.5rem;
     background-color: var(--kb_light);
-    border: none;
+    border: 1px solid rgb(169, 169, 169);
     border-radius: 4px;
     cursor: pointer;
     padding-left: 12px;
@@ -97,6 +97,9 @@ td.bloco span {
 }
 
 /*Estilização do teclado no "dark-theme"*/
+.dark-theme td.bloco{
+    border: 1px solid black;
+}
 .dark-theme .letter{
     background-color: var(--kb_dark);
 }

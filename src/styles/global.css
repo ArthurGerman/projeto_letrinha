@@ -8,9 +8,9 @@ body {
 
 :root { /* O grupo root serve para definir variáveis globais a serem usadas pelo código */
     /* TEMA CLARO*/
-    --bg_light: rgb(225,225,225); /* Backgound claro*/
+    --bg_light: linear-gradient(45deg, rgb(225, 225, 225), rgb(205, 218, 255)); /* Backgound claro*/
     --FontColor_light: black; /* Cor da fonte no tema claro*/
-    --hover_light: rgb(102,154,255); /* Cor do hover no tema claro*/
+    --hover_light: blue;/*rgb(102,154,255); /* Cor do hover no tema claro*/
 
     /* TEMA ESCURO*/
     --bg_dark: rgb(40,40,40); /* Backgound escuro*/
@@ -25,15 +25,15 @@ body {
     --kb_dark-hover: var(--hover_dark); /* Hover do teclado no tema escuro*/
 }
 
-/*****EFEITO DE DEGRADÊ ANIMADO(VAI SER USADO DEPOIS)*****/
-/*@keyframes degrade-animado{
+/*****EFEITO DE DEGRADÊ ANIMADO*****/
+@keyframes degrade-animado{
     0%{
         background-position-x: 0%;
     }
     100%{
         background-position-x: 100%;
     }
-}*/
+}
 
 .container {
     height: 100vh;
@@ -43,6 +43,8 @@ body {
     align-items: center;
     font-size: 25px;
     background: var(--bg_light);
+    background-size: 5000%, 100%;
+    animation: degrade-animado 10s infinite alternate ;
 }
 
 /*Estilização referente ao "light-mode" que é o primeiro a ser carregado.*/
@@ -56,9 +58,16 @@ body {
     color: var(--FontColor_light);
     font-weight: 400;
     font-family: "Luckiest Guy", cursive;
+    text-shadow:
+        -1px -1px 0 rgb(102,154,255),
+        -1px -1px 0 rgb(102,154,255),
+        -1px -1px 0 rgb(102,154,255),
+        -1px -1px 0 rgb(102,154,255);
 }
 .sobre{ /* Optei por usar uma outra classe para a div que comporta todos os elemetos do "Sobre", pois a div de classe "container" não estava servindo para o que nós estávamos inserindo, visto que, possui atributos diferente dos necessários para o "Sobre".*/
-    background-color: var(--bg_light);
+    background: var(--bg_light);
+    background-size: 5000%, 100%;
+    animation: degrade-animado 10s infinite alternate ;
 }
 
 /* Estilização dos links da classe "options"(Jogar e Sobre).*/
