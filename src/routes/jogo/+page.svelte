@@ -186,7 +186,7 @@
 
 	<!-- Exibe mensagem final quando o jogo termina -->
 	{#if $game.jogoFinalizado}
-		<p>
+		<p id="jogo_finalizado">
 			{$game.tentativas[$game.rodadaAtual].join('') === $game.palavraSecreta
 				? 'Você acertou!'
 				: `A palavra era: ${$game.palavraSecreta}`}

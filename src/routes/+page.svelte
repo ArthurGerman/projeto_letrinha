@@ -26,13 +26,13 @@
 
 <div class="container">
 	<div class="theme">
-		<button title="Mudo" id="musica" on:click={alterar_musica}>
+		<button title="Mute" id="musica" on:click={alterar_musica}>
 			<span class="material-symbols-outlined">
 				{$musicaLigada ? 'volume_up' : 'volume_off'} <!--"volume_up/volume_off" são os dois ícones de volumes que utilizamos aqui para a função de tocar música-->
 			</span>
 		</button>
 
-		<button title="Mudar tema" id="muda_tema" on:click={mudarTema}>
+		<button title="Change theme" id="muda_tema" on:click={mudarTema}>
 			<span class="material-symbols-outlined">{$tema === 'light' ? 'dark_mode' : 'routine'}</span> <!--"routine" é o símbolo de sol e "dark_mode" é a lua. Ambos nós importamos através de uma API do Google Icons-->
 		</button>
 	</div>
@@ -40,8 +40,8 @@
 	<div class="menu">
 		<h1>Sopa de Letrinhas</h1>
 
-		<a class="options" href="/jogo" title="Jogar">Jogar</a>
+		<a class="options" id="play" href="/jogo" title="Play">Play</a>
 		<br />
-		<a class="options" href="/sobre" title="Sobre o jogo">Sobre</a>
+		<a class="options" id="about" href="/sobre" title="About the game">About</a>
 	</div>
 </div>
