@@ -44,7 +44,7 @@ body {
     font-size: 25px;
     background: var(--bg_light);
     background-size: 5000%, 100%;
-    animation: degrade-animado 10s infinite alternate ;
+    animation: degrade-animado 5s infinite alternate ;
 }
 
 /*Estilização referente ao "light-mode" que é o primeiro a ser carregado.*/
@@ -67,7 +67,7 @@ body {
 .sobre{ /* Optei por usar uma outra classe para a div que comporta todos os elemetos do "Sobre", pois a div de classe "container" não estava servindo para o que nós estávamos inserindo, visto que, possui atributos diferente dos necessários para o "Sobre".*/
     background: var(--bg_light);
     background-size: 5000%, 100%;
-    animation: degrade-animado 10s infinite alternate ;
+    animation: degrade-animado 5s infinite alternate ;
 }
 
 /* Estilização dos links da classe "options"(Jogar e Sobre).*/
