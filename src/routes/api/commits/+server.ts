@@ -1,4 +1,4 @@
-// Função que busca a quantidade de commits
+// Função que busca e retorna a quantidade de commits
 
 export async function GET() {
     const res = await fetch('https://api.github.com/repos/ArthurGerman/projeto_letrinha/commits?per_page=1');
