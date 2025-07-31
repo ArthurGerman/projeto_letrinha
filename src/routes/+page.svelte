@@ -2,6 +2,7 @@
 	import '../styles/global.css';
 	import { tema } from '../stores/tema';
 	import { audioRef, musicaLigada } from '../stores/audio';
+	import { onMount } from 'svelte';
 
 	function mudarTema() {
 		tema.update((t) => (t === 'light' ? 'dark' : 'light'));
@@ -21,6 +22,17 @@
             return !ligada;
         });
     }
+
+
+	//Função para buscar a quantidade de Commits já feitos do projeto. É interessante para mostrar a versão, exemplo "Versão 1.26", sendo o número 26 a quantidade de commits feitas até o momento.
+	let totalCommits : number = 0;
+
+	onMount(() => {
+		fetch('/api/commits')
+			.then(res => res.json())
+			.then(data => totalCommits = data.total);
+
+	});
 
 </script>
 
@@ -44,4 +56,13 @@
 		<br />
 		<a class="options" id="about" href="/sobre" title="About the game">About</a>
 	</div>
+
+	<p id="version"
+		style="
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			font-size: 15px; margin-top: 250px
+		">
+		
+		Version 1.{totalCommits}
+	</p> <!--Imprime a versão que o jogo se encontra com base na quantidade de commits feitos. A quantidade mostrada é atualizada em tempo real-->
 </div>
