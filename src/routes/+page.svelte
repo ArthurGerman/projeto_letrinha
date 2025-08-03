@@ -1,11 +1,11 @@
 <script lang="ts">
 	import '../styles/global.css';
-	import { tema } from '../stores/tema';
+	import { theme } from '../stores/theme';
 	import { audioRef, musicaLigada } from '../stores/audio';
 	import { onMount } from 'svelte';
 
 	function mudarTema() {
-		tema.update((t) => (t === 'light' ? 'dark' : 'light'));
+		theme.update((t) => (t === 'light' ? 'dark' : 'light'));
 	}
 
 
@@ -45,16 +45,18 @@
 		</button>
 
 		<button title="Change theme" id="muda_tema" on:click={mudarTema}>
-			<span class="material-symbols-outlined">{$tema === 'light' ? 'dark_mode' : 'routine'}</span> <!--"routine" é o símbolo de sol e "dark_mode" é a lua. Ambos nós importamos através de uma API do Google Icons-->
+			<span class="material-symbols-outlined">{$theme === 'light' ? 'dark_mode' : 'routine'}</span> <!--"routine" é o símbolo de sol e "dark_mode" é a lua. Ambos nós importamos através de uma API do Google Icons-->
 		</button>
 	</div>
 
 	<div class="menu">
 		<h1>Sopa de Letrinhas</h1>
 
-		<a class="options" id="play" href="/jogo" title="Play">Play</a>
+		<a class="options" id="play" href="/game" title="Play">Play Game</a>
 		<br />
-		<a class="options" id="about" href="/sobre" title="About the game">About</a>
+		<a class="options" id="play" href="/dueto" title="Play">Play Dueto</a>
+		<br>
+		<a class="options" id="about" href="/about" title="About the game">About</a>
 	</div>
 
 	<p id="version"

@@ -1,5 +1,5 @@
-<div class="sobre">
-	<div class="texto">
+<div class="about">
+	<div class="text">
 		<h1>Sobre o jogo</h1>
 		<p>
 			Este atividade refere-se ao projeto de jogo realizado no final do semestre, feito à pedido do

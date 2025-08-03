@@ -3,37 +3,22 @@
 	// 1. IMPORTS
 	// ==============================================
 
-	// Importa o hook 'onMount' do Svelte para executar código quando o componente é renderizado
-	import { onMount } from 'svelte';
-
 	//importa o estado inicial
 	import { game } from '../../stores/game';
+	import Grid from '../../components/grid.svelte';
+	import Keyboard from '../../components/keyboard.svelte';
+	import { onMount } from 'svelte';
 
-	// ==============================================
-	// 2. ESTADOS DO JOGO (VARIÁVEIS REATIVAS)
-	// ==============================================
-
-	// array de duas dimensões com as letras do teclado virtual
-	const keyBoard: string[][] = [
-		['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-		['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '←'],
-		['Z', 'X', 'C', 'V', 'B', 'N', 'M', 'ENTER']
-	];
-
-	// ==============================================
-	// 3. FUNÇÕES PRINCIPAIS
-	// ==============================================
-
-	// Verifica se o palpite está correto e atualiza as cores
 	function verificarPalpite() {
 		let deveReiniciar = false;
 
 		game.update((state) => {
+			console.log(state.palavraSecreta.word)
 			const palpite = state.tentativas[state.rodadaAtual].join('').toUpperCase();
 			if (palpite.length !== 5) return state;
 
 			const coresDaRodada = Array(5).fill('cinza');
-			const letrasSecretas = state.palavraSecreta.toUpperCase().split('');
+			const letrasSecretas = state.palavraSecreta.word.toUpperCase().split('');
 			const letrasUsadas = Array(5).fill(false);
 
 			for (let i = 0; i < 5; i++) {
@@ -57,7 +42,7 @@
 
 			state.cores[state.rodadaAtual] = coresDaRodada;
 
-			if (palpite === state.palavraSecreta || state.rodadaAtual === 5) {
+			if (palpite === state.palavraSecreta.word || state.rodadaAtual === 5) {
 				state.jogoFinalizado = true;
 				deveReiniciar = true;
 			} else {
@@ -74,8 +59,6 @@
 			}, 3000);
 		}
 	}
-
-	// teclado virtual
 	function virtualKeyboard(tecla: string) {
 		game.update((state) => {
 			if (state.jogoFinalizado) return state;
@@ -110,8 +93,6 @@
 			return state;
 		});
 	}
-
-	// detecta o teclado
 	onMount(() => {
 		const handleKey = (e: KeyboardEvent) => {
 			if ($game.jogoFinalizado) return;
@@ -138,56 +119,23 @@
 	<!-- header -->
 	<div class="top">
 		<a class="voltar" id="voltar-jogo" href="/" title="Voltar">
-			<span class="material-symbols-outlined"> undo </span> <!--"undo" é o símbolo de seta que importamos do Google Fonts-->
+			<span class="material-symbols-outlined"> undo </span>
+			<!--"undo" é o símbolo de seta que importamos do Google Fonts-->
 		</a>
 
 		<h1>Sopa de Letrinhas</h1>
 	</div>
 
 	<!-- Geração da grade de tentativas -->
-	<table style="margin-top: 10px;">
-		<tbody>
-			{#each $game.tentativas as linha, i}
-				<tr>
-					{#each linha as letra, j}
-						<td
-							class="bloco {$game.cores[i][j]} {i === $game.rodadaAtual && j === $game.letraAtual
-								? 'bloco-atual'
-								: ''}"
-						>
-							<span>{letra}</span>
-						</td>
-					{/each}
-				</tr>
-			{/each}
-		</tbody>
-	</table>
+	<Grid attempts={$game.tentativas} colors={$game.cores} />
 
 	<!-- teclado virtual -->
-	<table style="margin-top: 10px;">
-		<tbody>
-			{#each keyBoard as line, i}
-				<tr class="line">
-					{#each line as key, j}
-						<td class="key">
-							<button
-								type="button"
-								on:click={() => virtualKeyboard(key)}
-								class={/^[A-Z]$/.test(key) || key === '←' ? 'letter' : 'letterSp'}
-							>
-								{key}
-							</button>
-						</td>
-					{/each}
-				</tr>
-			{/each}
-		</tbody>
-	</table>
+	<Keyboard onKey={virtualKeyboard} />
 
 	<!-- Exibe mensagem final quando o jogo termina -->
 	{#if $game.jogoFinalizado}
 		<p id="jogo_finalizado">
-			{$game.tentativas[$game.rodadaAtual].join('') === $game.palavraSecreta
+			{$game.tentativas[$game.rodadaAtual].join('') === $game.palavraSecreta.word
 				? 'Você acertou!'
 				: `A palavra era: ${$game.palavraSecreta}`}
 			<br />

@@ -1,17 +1,17 @@
-.sobre { /* Estilização da div "sobre"*/
+.about { /* Estilização da div "sobre"*/
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 100vh;;
 }
 
 /* Estilização da classe "texto" que contém o parágrafo e a lista de membros.*/
-.texto {
+.text {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-.texto p {
+.text p {
     width: 40%;
     text-align: center;
 }

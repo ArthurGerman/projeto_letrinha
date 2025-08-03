@@ -1,4 +1,4 @@
-export const palavras = [ // Array com atualmente 100 palavras
+export const words = [ // Array com atualmente 100 palavras
     "CASAS", "LIVRO", "TORRE", "FALTA", "BOMBA", "TERRA", "TERNO", "ONTEM", "MORTE", "CARRO", 
     "ANDAR", "ALTAR", "GATOS", "CALMA", "ARMAS", "PONTO", "LINHA", "PERTO", "LONGE", "PRETO",
     "VAPOR", "FOCOS", "TRAPO", "LIMPO", "BEIJO", "FUNDO", "RITMO", "VIDAS", "SUSTO", "GRAMA", 

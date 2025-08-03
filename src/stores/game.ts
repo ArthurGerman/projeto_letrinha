@@ -1,19 +1,17 @@
 import { writable } from 'svelte/store';
-import { palavras } from '../palavras';
+import { chooseRandomWord } from '$lib';
+import { Word } from '$lib';
 
-function escolherPalavraAleatoria() {
-		const indiceAleatorio = Math.floor(Math.random() * palavras.length); // Math.floor faz arredondamento de número, já o Math.random gera números aleatórios
-		return palavras[indiceAleatorio];
-	}
 
 // Estado inicial
 const createGameStore = () => {
-    // const 
+	// const 
+	const word: Word = new Word(chooseRandomWord())
 	const tentativas = Array(6).fill('').map(() => Array(5).fill(''));
 	const cores = Array(6).fill('').map(() => Array(5).fill(''));
 
 	const { subscribe, update, set } = writable({
-		palavraSecreta: escolherPalavraAleatoria(),
+		palavraSecreta: word,
 		tentativas,
 		cores,
 		rodadaAtual: 0,
@@ -25,7 +23,7 @@ const createGameStore = () => {
 		subscribe,
 		set,
 		reset: () => set({
-			palavraSecreta: escolherPalavraAleatoria(),
+			palavraSecreta: word,
 			tentativas: Array(6).fill('').map(() => Array(5).fill('')),
 			cores: Array(6).fill('').map(() => Array(5).fill('')),
 			rodadaAtual: 0,

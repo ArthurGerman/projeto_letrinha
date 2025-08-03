@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { tema } from '../stores/tema';
+	import { theme } from '../stores/theme';
 	import { audioRef } from '../stores/audio';
 	import { onMount } from 'svelte';
 
@@ -32,6 +32,6 @@
 <audio bind:this={audio} preload="auto"></audio>
 
 
-<div class:dark-theme={$tema === 'dark'}>
+<div class:dark-theme={$theme === 'dark'}>
 	<slot />
 </div>
