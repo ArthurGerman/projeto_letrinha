@@ -6,7 +6,7 @@
     <img alt="Static Badge" src="https://img.shields.io/badge/NodeJs-green">
 </div>
 
-Projeto referente à matéria de Programação Imperativa feito a pedido do professor Alan Diego. O projeto em si foi feito tendo como inspiração o jogo online Termo, onde o usuário tem que descobrir uma palavra misteriosa digitando letras para formá-la. Nosso projeto ainda está em desenvolvimento então, novas atualizações estão por vir.
+Projeto referente à matéria de Programação Imperativa feito a pedido do professor Alan Diego. O projeto em si foi feito tendo como inspiração o jogo online Termo, onde o usuário tem que descobrir uma palavra misteriosa digitando letras para formá-la. O projeto contém tanto o termo único quanto a versão que possui duas palavras(Dueto). Nosso projeto ainda está em desenvolvimento logo, novas atualizações estão por vir.
 
 
 ## Clonando o projeto
@@ -26,7 +26,6 @@ npm install
     <li>Arthur Germano;</li>
     <li>Elder Macena;</li>
     <li>Lucas Bezerra;</li>
-    <li>Gabriel Luna;</li>
     <li>Guilherme Evaristo;</li>
     <li>Thiago Henrique;</li>
     <li>Renato Aprígio</li>
