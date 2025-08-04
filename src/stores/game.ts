@@ -2,11 +2,12 @@ import { writable } from 'svelte/store';
 import { chooseRandomWord } from '$lib';
 import { Word } from '$lib';
 
+const word: Word = new Word(chooseRandomWord())
 
 // Estado inicial
 const createGameStore = () => {
 	// const 
-	const word: Word = new Word(chooseRandomWord())
+	
 	const tentativas = Array(6).fill('').map(() => Array(5).fill(''));
 	const cores = Array(6).fill('').map(() => Array(5).fill(''));
 
@@ -23,7 +24,7 @@ const createGameStore = () => {
 		subscribe,
 		set,
 		reset: () => set({
-			palavraSecreta: word,
+			palavraSecreta: new Word(chooseRandomWord()),
 			tentativas: Array(6).fill('').map(() => Array(5).fill('')),
 			cores: Array(6).fill('').map(() => Array(5).fill('')),
 			rodadaAtual: 0,
