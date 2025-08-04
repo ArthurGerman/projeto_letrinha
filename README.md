@@ -8,16 +8,6 @@
 
 Projeto referente à matéria de Programação Imperativa feito a pedido do professor Alan Diego. O projeto em si foi feito tendo como inspiração o jogo online Termo, onde o usuário tem que descobrir uma palavra misteriosa digitando letras para formá-la. Nosso projeto ainda está em desenvolvimento então, novas atualizações estão por vir.
 
-## Desenvolvedores responsáveis pelo projeto:
-<ul>
-    <li>Arthur Germano</li>
-    <li>Elder Macena</li>
-    <li>Lucas Bezerra</li>
-    <li>Gabriel Luna</li>
-    <li>Guilherme Evaristo</li>
-    <li>Thiago Henrique</li>
-    <li>Renato Aprígio</li>
-</ul>
 
 ## Clonando o projeto
 
@@ -31,3 +21,13 @@ git clone https://github.com/ArthurGerman/projeto_letrinha
 npm install
 ```
 
+## Desenvolvedores responsáveis pelo projeto:
+<ul>
+    <li>Arthur Germano</li>
+    <li>Elder Macena</li>
+    <li>Lucas Bezerra</li>
+    <li>Gabriel Luna</li>
+    <li>Guilherme Evaristo</li>
+    <li>Thiago Henrique</li>
+    <li>Renato Aprígio</li>
+</ul>
