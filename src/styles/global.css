@@ -59,12 +59,19 @@ body {
     font-weight: 400;
     font-family: "Luckiest Guy", cursive;
     text-shadow:
-        -1px -1px 0 rgb(102,154,255),
-        -1px -1px 0 rgb(102,154,255),
-        -1px -1px 0 rgb(102,154,255),
-        -1px -1px 0 rgb(102,154,255);
+    -1px -1px 0 rgb(102,154,255),
+    -1px -1px 0 rgb(102,154,255),
+    -1px -1px 0 rgb(102,154,255),
+    -1px -1px 0 rgb(102,154,255);
 }
-.sobre{ /* Optei por usar uma outra classe para a div que comporta todos os elemetos do "Sobre", pois a div de classe "container" não estava servindo para o que nós estávamos inserindo, visto que, possui atributos diferente dos necessários para o "Sobre".*/
+#game-buttons{ /*Estilização da div que comporta os botões que levam aos modos de jogo*/
+    width: 100%; 
+    display:flex; 
+    align-items:top; 
+    justify-content: center; 
+    height: 140px
+}
+.about{ /* Optei por usar uma outra classe para a div que comporta todos os elemetos do "Sobre", pois a div de classe "container" não estava servindo para o que nós estávamos inserindo, visto que, possui atributos diferente dos necessários para o "Sobre".*/
     background: var(--bg_light);
     background-size: 5000%, 100%;
     animation: degrade-animado 5s infinite alternate ;
@@ -87,11 +94,14 @@ a.options {
 a.options:hover{
     color: var(--hover_light)
 }
-a#play{ /* Estilização específica*/
-    margin-top: 25px;
+a.play{ /* Estilização específica*/
+    /*margin-top: 5px;*/
     width: 30%;
-    font-size: 30px;
-    height: 60px;
+    font-size: 27px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    height: 70px;
 }
 a#about{ /* Estilização específica*/
     width: 20%;
@@ -106,30 +116,30 @@ a#about{ /* Estilização específica*/
     display: flex;
     justify-content: right;
 }
-#muda_tema, #musica{ /*Estilização geral dos botões de switch(música e tema de cor)*/
+#select_theme, #audio{ /*Estilização geral dos botões de switch(música e tema de cor)*/
     background-color: transparent;
     border: none;
     margin-top: 20px;
 }
 /* Estilização específica dos dois botões abaixo*/
-#muda_tema{ 
+#select_theme{ 
     margin-right: 30px;
 }
-#musica{
+#audio{
     margin-right: 10px;
 }
-#muda_tema span, #musica span {
+#select_theme span, #audio span {
     color: var(--FontColor_light);
     cursor: pointer;
 }
-#muda_tema span:hover, #musica span:hover {
+#select_theme span:hover, #audio span:hover {
     color: var(--hover_light);
 }
 
 
 
 /*Estilização dos botões de voltar(os botões de voltar são comuns ao jogo e ao sobre)*/
-.voltar{
+.back{
     display: block;
     border-style: solid;
     border-width: 3px;
@@ -139,7 +149,7 @@ a#about{ /* Estilização específica*/
     text-align: center;
     text-decoration: none;
 }
-.voltar:hover {
+.back:hover {
     color: var(--hover_light);
 }
 
@@ -152,16 +162,16 @@ a#about{ /* Estilização específica*/
     background: var(--bg_dark);
     color: var(--FontColor_dark);
 }
-.dark-theme #muda_tema span {
+.dark-theme #select_theme span {
     color: var(--FontColor_dark);
 }
-.dark-theme #muda_tema span:hover {
+.dark-theme #select_theme span:hover {
     color: var(--hover_dark);
 }
-.dark-theme #musica span{
+.dark-theme #audio span{
     color: var(--FontColor_dark);
 }
-.dark-theme #musica span:hover{
+.dark-theme #audio span:hover{
     color: var(--hover_dark);
 }
 .dark-theme .menu {
@@ -185,7 +195,7 @@ a#about{ /* Estilização específica*/
         -3px -3px 0 black,
         -3px -3px 0 black;
 }
-.dark-theme .sobre{
+.dark-theme .about{
     background: var(--bg_dark);
     color: var(--FontColor_dark);
 }
@@ -195,10 +205,10 @@ a#about{ /* Estilização específica*/
 .dark-theme a.options:hover{
     color: var(--hover_dark);
 }
-.dark-theme .voltar{
+.dark-theme .back{
     color: var(--FontColor_dark);
 }
-.dark-theme .voltar:hover{
+.dark-theme .back:hover{
     color: var(--hover_dark);
 }
 

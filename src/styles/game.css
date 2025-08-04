@@ -5,7 +5,7 @@
     margin-top: 20px;
 }
 
-#voltar-jogo{ /* Estilização específica para o botão voltar da página de jogo. Além dos estilos da classe geral "voltar", também estamos aplicando estilos específicos.*/
+.back-game{ /* Estilização específica para o botão voltar da página de jogo. Além dos estilos da classe geral "voltar", também estamos aplicando estilos específicos.*/
     width: auto; 
     margin-right: 20px
 }

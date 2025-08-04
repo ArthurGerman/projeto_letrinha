@@ -118,7 +118,7 @@
 <div class="container">
 	<!-- header -->
 	<div class="top">
-		<a class="voltar" id="voltar-jogo" href="/" title="Voltar">
+		<a class="back back-game" href="/" title="back">
 			<span class="material-symbols-outlined"> undo </span>
 			<!--"undo" é o símbolo de seta que importamos do Google Fonts-->
 		</a>
@@ -137,7 +137,7 @@
 		<p id="jogo_finalizado">
 			{$game.tentativas[$game.rodadaAtual].join('') === $game.palavraSecreta.word
 				? 'Você acertou!'
-				: `A palavra era: ${$game.palavraSecreta}`}
+				: `A palavra era: ${$game.palavraSecreta.word}`}
 			<br />
 			Nova palavra em 3 segundos...
 		</p>

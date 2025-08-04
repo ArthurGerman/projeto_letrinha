@@ -36,14 +36,13 @@ table.table {
 }
 
 
-/* Estilização da div de id "voltar" e do botão de id "voltar-sobre"*/
-/* Preferi usar o id "voltar" e não a classe "voltar" na div pois a classe "voltar" já está sendo usada nos botões e a formatação da classe não serve para esta div*/
-div#voltar{
+/* Estilização da div de id "back" e do botão de id "back-about"*/
+div.back-about{
     display: flex; 
     justify-content: center; 
     margin-top: 20px;
 }
-#voltar-sobre { /* Estilização específica para o botão voltar da página do "Sobre". Além dos estilos da classe geral "voltar", também estamos aplicando estilos específicos.*/
+a.back-about{ /* Estilização específica para o botão voltar da página do "Sobre". Além dos estilos da classe geral "back", também estamos aplicando estilos específicos.*/
     width: 5%; 
     margin-top: 5px
 }

@@ -142,7 +142,7 @@
 <div class="container" style="gap: 20px;">
 	<!-- header -->
 	<div class="top">
-		<a class="voltar" id="voltar-jogo" href="/" title="Voltar">
+		<a class="back back-game" href="/" title="back">
 			<span class="material-symbols-outlined"> undo </span>
 			<!--"undo" é o símbolo de seta que importamos do Google Fonts-->
 		</a>

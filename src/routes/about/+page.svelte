@@ -29,8 +29,8 @@
 		</table>
 	</div>
 
-	<div id="voltar">
-		<a class="voltar" id="voltar-sobre" href="/" title="Voltar">
+	<div class="back-about">
+		<a class="back back-about" href="/" title="back">
             <span class="material-symbols-outlined">undo</span> <!--"undo" é o símbolo de seta que importamos do Google Fonts-->
         </a>
 	</div>

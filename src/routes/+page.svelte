@@ -4,12 +4,12 @@
 	import { audioRef, musicaLigada } from '../stores/audio';
 	import { onMount } from 'svelte';
 
-	function mudarTema() {
+	function changeTheme() {
 		theme.update((t) => (t === 'light' ? 'dark' : 'light'));
 	}
 
 
-    function alterar_musica() {
+    function changeMusic() {
         const audio = $audioRef;
         if (!audio) return;
         musicaLigada.update((ligada) => {
@@ -38,13 +38,13 @@
 
 <div class="container">
 	<div class="theme">
-		<button title="Mute" id="musica" on:click={alterar_musica}>
+		<button title="mute" id="audio" on:click={changeMusic}>
 			<span class="material-symbols-outlined">
 				{$musicaLigada ? 'volume_up' : 'volume_off'} <!--"volume_up/volume_off" são os dois ícones de volumes que utilizamos aqui para a função de tocar música-->
 			</span>
 		</button>
 
-		<button title="Change theme" id="muda_tema" on:click={mudarTema}>
+		<button title="change theme" id="select_theme" on:click={changeTheme}>
 			<span class="material-symbols-outlined">{$theme === 'light' ? 'dark_mode' : 'routine'}</span> <!--"routine" é o símbolo de sol e "dark_mode" é a lua. Ambos nós importamos através de uma API do Google Icons-->
 		</button>
 	</div>
@@ -52,11 +52,15 @@
 	<div class="menu">
 		<h1>Sopa de Letrinhas</h1>
 
-		<a class="options" id="play" href="/game" title="Play">Play Game</a>
-		<br />
-		<a class="options" id="play" href="/dueto" title="Play">Play Dueto</a>
-		<br>
-		<a class="options" id="about" href="/about" title="About the game">About</a>
+		<div id="game-buttons">
+			<a class="options play" href="/game" title="play Termo">Play Termo</a>
+			<br />
+			<a class="options play" href="/dueto" title="play Dueto">Play Dueto</a>
+			<br>
+
+		</div>
+
+		<a class="options" id="about" href="/about" title="about the game">About</a>
 	</div>
 
 	<p id="version"
