@@ -8,12 +8,13 @@
 	import Grid from '../../components/grid.svelte';
 	import Keyboard from '../../components/keyboard.svelte';
 	import { onMount } from 'svelte';
+	import { handlers } from 'svelte/legacy';
 
 	function verificarPalpite() {
 		let deveReiniciar = false;
 
 		game.update((state) => {
-			console.log(state.palavraSecreta.word)
+			console.log(state.palavraSecreta.word);
 			const palpite = state.tentativas[state.rodadaAtual].join('').toUpperCase();
 			if (palpite.length !== 5) return state;
 
@@ -59,6 +60,23 @@
 			}, 3000);
 		}
 	}
+
+	function handleKey(e: KeyboardEvent) {
+		if ($game.jogoFinalizado) return;
+
+		const tecla = e.key.toUpperCase();
+
+		if (tecla === 'BACKSPACE') {
+			e.preventDefault();
+			virtualKeyboard('←');
+		} else if (tecla === 'ENTER') {
+			e.preventDefault();
+			virtualKeyboard('ENTER');
+		} else if (/^[A-Z]$/.test(tecla)) {
+			virtualKeyboard(tecla);
+		}
+	}
+
 	function virtualKeyboard(tecla: string) {
 		game.update((state) => {
 			if (state.jogoFinalizado) return state;
@@ -93,28 +111,9 @@
 			return state;
 		});
 	}
-	onMount(() => {
-		const handleKey = (e: KeyboardEvent) => {
-			if ($game.jogoFinalizado) return;
-
-			const tecla = e.key.toUpperCase();
-
-			if (tecla === 'BACKSPACE') {
-				e.preventDefault();
-				virtualKeyboard('←');
-			} else if (tecla === 'ENTER') {
-				e.preventDefault();
-				virtualKeyboard('ENTER');
-			} else if (/^[A-Z]$/.test(tecla)) {
-				virtualKeyboard(tecla);
-			}
-		};
-
-		window.addEventListener('keydown', handleKey);
-		return () => window.removeEventListener('keydown', handleKey);
-	});
 </script>
 
+<svelte:window on:keydown={handleKey} />
 <div class="container">
 	<!-- header -->
 	<div class="top">

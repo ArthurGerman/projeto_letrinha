@@ -72,6 +72,22 @@
 		}
 	}
 
+	function handleKey(e: KeyboardEvent) {
+		if ($dueto.gameFinished[0] && $dueto.gameFinished[1]) return;
+
+		const tecla = e.key.toUpperCase();
+
+		if (tecla === 'BACKSPACE') {
+			e.preventDefault();
+			virtualKeyboard('←');
+		} else if (tecla === 'ENTER') {
+			e.preventDefault();
+			virtualKeyboard('ENTER');
+		} else if (/^[A-Z]$/.test(tecla)) {
+			virtualKeyboard(tecla);
+		}
+	}
+
 	function virtualKeyboard(tecla: string) {
 		dueto.update((state) => {
 			const rodada = state.currentRound[0];
@@ -115,30 +131,9 @@
 			return state;
 		});
 	}
-
-	onMount(() => {
-		const handleKey = (e: KeyboardEvent) => {
-			const state = get(dueto);
-			if (state.gameFinished[0] && state.gameFinished[1]) return;
-
-			const tecla = e.key.toUpperCase();
-
-			if (tecla === 'BACKSPACE') {
-				e.preventDefault();
-				virtualKeyboard('←');
-			} else if (tecla === 'ENTER') {
-				e.preventDefault();
-				virtualKeyboard('ENTER');
-			} else if (/^[A-Z]$/.test(tecla)) {
-				virtualKeyboard(tecla);
-			}
-		};
-
-		window.addEventListener('keydown', handleKey);
-		return () => window.removeEventListener('keydown', handleKey);
-	});
 </script>
 
+<svelte:window on:keydown={handleKey} />
 <div class="container">
 	<!-- header -->
 	<div class="top">
