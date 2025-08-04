@@ -1,38 +1,19 @@
-# sv
+# Projeto Sopa de Letrinhas
+<img alt="Static Badge" src="https://img.shields.io/badge/Svelte-orange">
+<img alt="Static Badge" src="https://img.shields.io/badge/Typescript-blue">
+<img alt="Static Badge" src="https://img.shields.io/badge/NodeJs-green">
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Projeto referente à matéria de Programação Imperativa feito a pedido do professor Alan Diego. O projeto em si foi feito tendo como inspiração o jogo online Termo, onde o usuário tem que descobrir uma palavra misteriosa digitando letras para formá-la. Nosso projeto ainda está em desenvolvimento então, novas atualizações estão por vir.
 
-## Creating a project
+## Clonando o projeto
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Para rodar o projeto, é necessário cloná-lo e depois realizar um comando simples de intalação do pacote npm
 
 ```bash
-npm run dev
+# comando para clonar o projeto
+git clone https://github.com/ArthurGerman/projeto_letrinha
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# dentro da pasta clonada, execute o comando abaixo para instalar os pacotes npm para rodar o projeto
+npm install
 ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
