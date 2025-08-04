@@ -21,13 +21,13 @@ git clone https://github.com/ArthurGerman/projeto_letrinha
 npm install
 ```
 
-## Desenvolvedores responsáveis pelo projeto:
+## Desenvolvedores responsáveis pelo projeto
 <ul>
-    <li>Arthur Germano</li>
-    <li>Elder Macena</li>
-    <li>Lucas Bezerra</li>
-    <li>Gabriel Luna</li>
-    <li>Guilherme Evaristo</li>
-    <li>Thiago Henrique</li>
+    <li>Arthur Germano;</li>
+    <li>Elder Macena;</li>
+    <li>Lucas Bezerra;</li>
+    <li>Gabriel Luna;</li>
+    <li>Guilherme Evaristo;</li>
+    <li>Thiago Henrique;</li>
     <li>Renato Aprígio</li>
 </ul>
