@@ -1,7 +1,10 @@
 # Projeto Sopa de Letrinhas
-<img alt="Static Badge" src="https://img.shields.io/badge/Svelte-orange">
-<img alt="Static Badge" src="https://img.shields.io/badge/Typescript-blue">
-<img alt="Static Badge" src="https://img.shields.io/badge/NodeJs-green">
+
+<div style="display: flex; flex-direction: row">
+    <img alt="Static Badge" src="https://img.shields.io/badge/Svelte-orange">
+    <img alt="Static Badge" src="https://img.shields.io/badge/Typescript-blue">
+    <img alt="Static Badge" src="https://img.shields.io/badge/NodeJs-green">
+</div>
 
 Projeto referente à matéria de Programação Imperativa feito a pedido do professor Alan Diego. O projeto em si foi feito tendo como inspiração o jogo online Termo, onde o usuário tem que descobrir uma palavra misteriosa digitando letras para formá-la. Nosso projeto ainda está em desenvolvimento então, novas atualizações estão por vir.
 
