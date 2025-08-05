@@ -1,7 +1,7 @@
 .about { /* Estilização da div "sobre"*/
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 100vh;;
+    height: 100%;
 }
 
 /* Estilização da classe "texto" que contém o parágrafo e a lista de membros.*/
@@ -26,13 +26,18 @@ div.table {
 table.table {
     margin-top: 30px;
 }
+.table_img{
+    text-align: center;
+}
 #img { /* Estilização da célula da tabela que contém a imagem do logotipo do IFPE*/
     padding: 10px;
     width: 150px;
     height: 200px;
+    text-align: center;
 }
 #img img{
     height: 200px; /* Tamanho da imagem*/
+    margin-top: 50px;
 }
 
 
@@ -44,5 +49,7 @@ div.back-about{
 }
 a.back-about{ /* Estilização específica para o botão voltar da página do "Sobre". Além dos estilos da classe geral "back", também estamos aplicando estilos específicos.*/
     width: 5%; 
-    margin-top: 5px
+    margin-top: 20px;
+    margin-bottom: 40px;
+
 }
