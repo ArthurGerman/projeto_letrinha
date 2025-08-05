@@ -212,18 +212,12 @@ a#about{ /* Estilização específica*/
     color: var(--hover_dark);
 }
 
-/*=======EFEITO DE LINHA=======*/
-/* .menu::after{
-    content: " ";
-    width: 0%;
-    height: 2px;
-    background-color: rgb(102, 145, 255);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: 0.5s ease-in-out;
-}
 
-.menu:hover::after{
-    width: 102%;
-} */
+
+/* Estilização do parágrafo da versão do jogo*/
+p#version{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px; 
+    position: fixed;
+    bottom: 0;
+}

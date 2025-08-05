@@ -63,12 +63,7 @@
 		<a class="options" id="about" href="/about" title="about the game">About</a>
 	</div>
 
-	<p id="version"
-		style="
-			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-			font-size: 15px; margin-top: 250px
-		">
-		
+	<p id="version"> <!--Imprime a versão que o jogo se encontra com base na quantidade de commits feitos. A quantidade mostrada é atualizada em tempo real-->
 		Version 1.{totalCommits}
-	</p> <!--Imprime a versão que o jogo se encontra com base na quantidade de commits feitos. A quantidade mostrada é atualizada em tempo real-->
+	</p>
 </div>
