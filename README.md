@@ -19,6 +19,9 @@ git clone https://github.com/ArthurGerman/projeto_letrinha
 
 # dentro da pasta clonada, execute o comando abaixo para instalar os pacotes npm para rodar o projeto
 npm install
+
+## por fim, o comando abaixo inicializará o servidor local para rodar o projeto
+npm run dev
 ```
 
 ## Desenvolvedores responsáveis pelo projeto
