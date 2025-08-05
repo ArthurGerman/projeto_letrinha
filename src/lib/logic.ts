@@ -5,12 +5,19 @@ export function verificarPalpite(store: GameStore) {
 
     store.update((state) => {
         const rodada = state.currentRound[0];
+        let lineCheck : boolean = false
 
         for (let p = 0; p < state.secretWord.length; p++) {
             if (state.gameFinished[p]) continue;
 
-            const palpite = state.attempts[p][rodada].join('').toUpperCase();
-            if (palpite.length !== 5) continue;
+            //const palpite = state.attempts[p][rodada].join('').toUpperCase();
+            //if (palpite.length !== 5) continue;
+
+            const linha = state.attempts[p][rodada];
+            if (linha.some(l => !l || l.length !== 1)) continue;
+            const palpite = linha.join('').toUpperCase();
+
+            lineCheck = true
 
             const palavraSecreta = state.secretWord[p].word.toUpperCase();
             const letrasSecretas = palavraSecreta.split('');
@@ -43,13 +50,16 @@ export function verificarPalpite(store: GameStore) {
             }
         }
 
-        if (!state.gameFinished.every(f => f) && rodada < 5) {
-            state.currentRound = state.currentRound.map(() => rodada + 1);
-            state.currentLetter = state.currentLetter.map(() => 0);
-        } else {
-            state.gameFinished = state.gameFinished.map(() => true);
-            restart = true;
+        if (lineCheck){
+            if (!state.gameFinished.every(f => f) && rodada < 5) {
+                state.currentRound = state.currentRound.map(() => rodada + 1);
+                state.currentLetter = state.currentLetter.map(() => 0);
+            } else {
+                state.gameFinished = state.gameFinished.map(() => true);
+                restart = true;
+            }
         }
+
 
         return state;
     });
