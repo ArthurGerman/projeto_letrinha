@@ -8,6 +8,7 @@
 	import Grid from '../../components/grid.svelte';
 	import Keyboard from '../../components/keyboard.svelte';
 	import { createKeyHandler, virtualKeyboard } from '../../lib/logic';
+	import Modal from '../../components/message.svelte';
 
 	const handleKey = createKeyHandler(game);
 	
@@ -34,13 +35,5 @@
 	<Keyboard onKey={(k: string) => virtualKeyboard(game, k)} />
 
 	<!-- Exibe mensagem final quando o jogo termina -->
-	{#if $game.gameFinished[0]}
-		<p id="jogo_finalizado">
-			{$game.secretWord[0].varifyword($game.attempts[0][$game.currentRound[0]].join(''))
-				? 'Você acertou!'
-				: `A palavra era: ${$game.secretWord[0].word}`}
-			<br />
-			Nova palavra em 3 segundos...
-		</p>
-	{/if}
+	 <Modal store={game} />
 </div>

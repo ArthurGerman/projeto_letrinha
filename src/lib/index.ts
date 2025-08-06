@@ -3,15 +3,17 @@ const wordUsed: number[] = [];
 
 export class Word {
     word: string
+    correctWord?: string
 
-    constructor(word: string) {
+    constructor(word: string, correctWord?: string) {
         this.word = word
+        this.correctWord = correctWord
     }
 
-    varifyword(word: string) {
-        if (word === this.word) return true;
+    varifyword() {
+        if (!this.correctWord) return false;
 
-        return false;
+        return this.word === this.correctWord;
     }
 }
 

@@ -8,10 +8,11 @@
 	import Grid from '../../components/grid.svelte';
 	import Keyboard from '../../components/keyboard.svelte';
 	import { createKeyHandler, virtualKeyboard } from '../../lib/logic';
+	import Modal from '../../components/message.svelte';
 
 	const handleKey = createKeyHandler(dueto);
 
-	console.log($dueto.secretWord[0].word, $dueto.secretWord[1].word)
+	console.log($dueto.secretWord[0].word, $dueto.secretWord[1].word);
 </script>
 
 <svelte:window on:keydown={handleKey} />
@@ -36,14 +37,5 @@
 	<Keyboard onKey={(k: string) => virtualKeyboard(dueto, k)} />
 
 	<!-- Exibe mensagem final quando o jogo termina -->
-	{#if $dueto.gameFinished[0] && $dueto.gameFinished[1]}
-		<p id="jogo_finalizado">
-			{$dueto.attempts[0][$dueto.attempts[0].length - 1].join('') === $dueto.secretWord[0].word &&
-			$dueto.attempts[1][$dueto.attempts[1].length - 1].join('') === $dueto.secretWord[1].word
-				? 'Você acertou!'
-				: `As palavras eram: ${$dueto.secretWord[0].word} e ${$dueto.secretWord[1].word}`}
-			<br />
-			Nova palavra em 3 segundos...
-		</p>
-	{/if}
+	<Modal store={dueto} />
 </div>

@@ -5,7 +5,7 @@ export function verificarPalpite(store: GameStore) {
 
     store.update((state) => {
         const rodada = state.currentRound;
-        let lineCheck : boolean = false
+        let lineCheck: boolean = false
 
         for (let p = 0; p < state.secretWord.length; p++) {
             if (state.gameFinished[p]) continue;
@@ -47,10 +47,11 @@ export function verificarPalpite(store: GameStore) {
 
             if (palpite === palavraSecreta) {
                 state.gameFinished[p] = true;
+                state.secretWord[p].correctWord = palpite
             }
         }
 
-        if (lineCheck){
+        if (lineCheck) {
             if (!state.gameFinished.every(f => f) && rodada < 5) {
                 state.currentRound = rodada + 1;
                 state.currentLetter = state.currentLetter.map(() => 0);
