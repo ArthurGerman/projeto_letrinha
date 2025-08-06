@@ -5,11 +5,11 @@ export interface GameState {
     secretWord: Word[];
     attempts: string[][][];
     colors: string[][][];
-    currentRound: number[];
+    currentRound: number;
     currentLetter: number[];
     gameFinished: boolean[];
 }
 
-export interface GameStore extends Writable<GameState> {
+export type GameStore = Writable<GameState> & {
     reset: () => void;
-}
+};

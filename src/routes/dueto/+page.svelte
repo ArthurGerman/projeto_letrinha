@@ -4,7 +4,7 @@
 	// ==============================================
 
 	//importa o estado inicial
-	import { dueto } from '../../stores/dueto';
+	import { dueto } from '../../stores/game';
 	import Grid from '../../components/grid.svelte';
 	import Keyboard from '../../components/keyboard.svelte';
 	import { createKeyHandler, virtualKeyboard } from '../../lib/logic';
@@ -33,7 +33,7 @@
 	</div>
 
 	<!-- teclado virtual -->
-	<Keyboard onKey={(k) => virtualKeyboard(dueto, k)} />
+	<Keyboard onKey={(k: string) => virtualKeyboard(dueto, k)} />
 
 	<!-- Exibe mensagem final quando o jogo termina -->
 	{#if $dueto.gameFinished[0] && $dueto.gameFinished[1]}

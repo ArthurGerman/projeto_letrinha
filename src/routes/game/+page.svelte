@@ -31,7 +31,7 @@
 	<Grid attempts={$game.attempts[0]} colors={$game.colors[0]} />
 
 	<!-- teclado virtual -->
-	<Keyboard onKey={(k) => virtualKeyboard(game, k)} />
+	<Keyboard onKey={(k: string) => virtualKeyboard(game, k)} />
 
 	<!-- Exibe mensagem final quando o jogo termina -->
 	{#if $game.gameFinished[0]}

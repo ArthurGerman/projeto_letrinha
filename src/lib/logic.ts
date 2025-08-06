@@ -4,7 +4,7 @@ export function verificarPalpite(store: GameStore) {
     let restart = false;
 
     store.update((state) => {
-        const rodada = state.currentRound[0];
+        const rodada = state.currentRound;
         let lineCheck : boolean = false
 
         for (let p = 0; p < state.secretWord.length; p++) {
@@ -52,7 +52,7 @@ export function verificarPalpite(store: GameStore) {
 
         if (lineCheck){
             if (!state.gameFinished.every(f => f) && rodada < 5) {
-                state.currentRound = state.currentRound.map(() => rodada + 1);
+                state.currentRound = rodada + 1;
                 state.currentLetter = state.currentLetter.map(() => 0);
             } else {
                 state.gameFinished = state.gameFinished.map(() => true);
@@ -72,7 +72,7 @@ export function verificarPalpite(store: GameStore) {
 
 export function virtualKeyboard(store: GameStore, tecla: string) {
     store.update((state) => {
-        const rodada = state.currentRound[0];
+        const rodada = state.currentRound;
         if (rodada >= 6) return state;
 
         if (tecla === 'ENTER') {

@@ -1,35 +1,38 @@
-import { writable } from 'svelte/store';
+// src/stores/game.ts
+import { writable, type Writable } from 'svelte/store';
 import { chooseRandomWord } from '$lib';
 import { Word } from '$lib';
 import type { GameState, GameStore } from '$lib/type';
 
-const createGameStore = () => {
-	const word: Word = new Word(chooseRandomWord());
+const createGrid = () => Array(6).fill(null).map(() => Array(5).fill(''));
 
-    const novoGrid = () => Array(6).fill(null).map(() => Array(5).fill(''));
-
-    const { subscribe, update, set } = writable<GameState>({
-        secretWord: [word],
-        attempts: [novoGrid()],
-        colors: [novoGrid()],
-        currentRound: [0],
-        currentLetter: [0],
-        gameFinished: [false]
+function createGameStore(wordsCount: number): GameStore {
+    // cria o store base
+    const store: Writable<GameState> = writable({
+        secretWord: Array.from({ length: wordsCount }, () => new Word(chooseRandomWord())),
+        attempts: Array.from({ length: wordsCount }, () => createGrid()),
+        colors: Array.from({ length: wordsCount }, () => createGrid()),
+        currentRound: 0,
+        currentLetter: Array(wordsCount).fill(0),
+        gameFinished: Array(wordsCount).fill(false)
     });
 
+    // adiciona reset sem perder o tipo de Writable
     return {
-        subscribe,
-        set,
-        reset: () => set({
-            secretWord: [new Word(chooseRandomWord())],
-            attempts: [novoGrid()],
-            colors: [novoGrid()],
-            currentRound: [0],
-            currentLetter: [0],
-            gameFinished: [false]
-        }),
-        update
+        ...store,
+        reset: () => {
+            store.set({
+                secretWord: Array.from({ length: wordsCount }, () => new Word(chooseRandomWord())),
+                attempts: Array.from({ length: wordsCount }, () => createGrid()),
+                colors: Array.from({ length: wordsCount }, () => createGrid()),
+                currentRound: 0,
+                currentLetter: Array(wordsCount).fill(0),
+                gameFinished: Array(wordsCount).fill(false)
+            });
+        }
     };
-};
+}
 
-export const game: GameStore = createGameStore();
+// ✅ Agora funciona para ambos os modos
+export const game: GameStore = createGameStore(1);
+export const dueto: GameStore = createGameStore(2);
