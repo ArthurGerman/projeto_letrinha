@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../styles/global.css';
 	import { theme } from '../stores/theme';
-	import { audioRef, musicaLigada } from '../stores/audio';
+	import { audioRef, musicOn } from '../stores/audio';
 	import { onMount } from 'svelte';
 
 	function changeTheme() {
@@ -11,14 +11,14 @@
 	function changeMusic() {
 		const audio = $audioRef;
 		if (!audio) return;
-		musicaLigada.update((ligada: any) => {
+		musicOn.update((on: any) => {
 			audio.volume = 1; // Volume inicial. 0 é mutado, 1 é desmutado
-			if (!ligada) {
+			if (!on) {
 				audio.play();
 			} else {
 				audio.pause();
 			}
-			return !ligada;
+			return !on;
 		});
 	}
 
@@ -36,7 +36,7 @@
 	<div class="theme">
 		<button title="mute" id="audio" on:click={changeMusic}>
 			<span class="material-symbols-outlined">
-				{$musicaLigada ? 'volume_up' : 'volume_off'}
+				{$musicOn ? 'volume_up' : 'volume_off'}
 				<!--"volume_up/volume_off" são os dois ícones de volumes que utilizamos aqui para a função de tocar música-->
 			</span>
 		</button>

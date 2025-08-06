@@ -1,4 +1,3 @@
-// src/stores/game.ts
 import { writable, type Writable } from 'svelte/store';
 import { chooseRandomWord } from '$lib';
 import { Word } from '$lib';
@@ -7,7 +6,6 @@ import type { GameState, GameStore } from '$lib/type';
 const createGrid = () => Array(6).fill(null).map(() => Array(5).fill(''));
 
 function createGameStore(wordsCount: number): GameStore {
-    // cria o store base
     const store: Writable<GameState> = writable({
         secretWord: Array.from({ length: wordsCount }, () => new Word(chooseRandomWord())),
         attempts: Array.from({ length: wordsCount }, () => createGrid()),
@@ -17,7 +15,6 @@ function createGameStore(wordsCount: number): GameStore {
         gameFinished: Array(wordsCount).fill(false)
     });
 
-    // adiciona reset sem perder o tipo de Writable
     return {
         ...store,
         reset: () => {
@@ -33,6 +30,5 @@ function createGameStore(wordsCount: number): GameStore {
     };
 }
 
-// ✅ Agora funciona para ambos os modos
 export const game: GameStore = createGameStore(1);
 export const dueto: GameStore = createGameStore(2);

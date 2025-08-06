@@ -1,59 +1,56 @@
 import type { GameStore } from './type';
 
-export function verificarPalpite(store: GameStore) {
+export function checkGuess(store: GameStore) {
     let restart = false;
 
     store.update((state) => {
-        const rodada = state.currentRound;
+        const round = state.currentRound;
         let lineCheck: boolean = false
 
         for (let p = 0; p < state.secretWord.length; p++) {
             if (state.gameFinished[p]) continue;
 
-            //const palpite = state.attempts[p][rodada].join('').toUpperCase();
-            //if (palpite.length !== 5) continue;
-
-            const linha = state.attempts[p][rodada];
-            if (linha.some(l => !l || l.length !== 1)) continue;
-            const palpite = linha.join('').toUpperCase();
+            const line = state.attempts[p][round];
+            if (line.some(l => !l || l.length !== 1)) continue;
+            const Guess = line.join('').toUpperCase();
 
             lineCheck = true
 
-            const palavraSecreta = state.secretWord[p].word.toUpperCase();
-            const letrasSecretas = palavraSecreta.split('');
-            const coresDaRodada = Array(5).fill('cinza');
-            const letrasUsadas = Array(5).fill(false);
+            const secretWord = state.secretWord[p].word.toUpperCase();
+            const secretLetters = secretWord.split('');
+            const roundColor = Array(5).fill('gray');
+            const usedLetters = Array(5).fill(false);
 
             for (let i = 0; i < 5; i++) {
-                if (palpite[i] === letrasSecretas[i]) {
-                    coresDaRodada[i] = 'verde';
-                    letrasUsadas[i] = true;
+                if (Guess[i] === secretLetters[i]) {
+                    roundColor[i] = 'green';
+                    usedLetters[i] = true;
                 }
             }
 
             for (let i = 0; i < 5; i++) {
-                if (coresDaRodada[i] === 'cinza') {
+                if (roundColor[i] === 'gray') {
                     for (let j = 0; j < 5; j++) {
-                        if (!letrasUsadas[j] && palpite[i] === letrasSecretas[j]) {
-                            coresDaRodada[i] = 'amarelo';
-                            letrasUsadas[j] = true;
+                        if (!usedLetters[j] && Guess[i] === secretLetters[j]) {
+                            roundColor[i] = 'yellow';
+                            usedLetters[j] = true;
                             break;
                         }
                     }
                 }
             }
 
-            state.colors[p][rodada] = coresDaRodada;
+            state.colors[p][round] = roundColor;
 
-            if (palpite === palavraSecreta) {
+            if (Guess === secretWord) {
                 state.gameFinished[p] = true;
-                state.secretWord[p].correctWord = palpite
+                state.secretWord[p].correctWord = Guess
             }
         }
 
         if (lineCheck) {
-            if (!state.gameFinished.every(f => f) && rodada < 5) {
-                state.currentRound = rodada + 1;
+            if (!state.gameFinished.every(f => f) && round < 5) {
+                state.currentRound = round + 1;
                 state.currentLetter = state.currentLetter.map(() => 0);
             } else {
                 state.gameFinished = state.gameFinished.map(() => true);
@@ -71,38 +68,38 @@ export function verificarPalpite(store: GameStore) {
 }
 
 
-export function virtualKeyboard(store: GameStore, tecla: string) {
+export function virtualKeyboard(store: GameStore, key: string) {
     store.update((state) => {
-        const rodada = state.currentRound;
-        if (rodada >= 6) return state;
+        const round = state.currentRound;
+        if (round >= 6) return state;
 
-        if (tecla === 'ENTER') {
-            verificarPalpite(store);
+        if (key === 'ENTER') {
+            checkGuess(store);
             return state;
         }
 
-        if (tecla === '←') {
+        if (key === '←') {
             for (let p = 0; p < state.secretWord.length; p++) {
                 if (state.gameFinished[p]) continue;
-                const linha = [...state.attempts[p][rodada]];
-                const idx = linha.findLastIndex(l => l !== '');
+                const line = [...state.attempts[p][round]];
+                const idx = line.findLastIndex(l => l !== '');
                 if (idx >= 0) {
-                    linha[idx] = '';
-                    state.attempts[p][rodada] = linha;
+                    line[idx] = '';
+                    state.attempts[p][round] = line;
                     state.currentLetter[p] = idx;
                 }
             }
             return state;
         }
 
-        if (/^[A-Z]$/.test(tecla)) {
+        if (/^[A-Z]$/.test(key)) {
             for (let p = 0; p < state.secretWord.length; p++) {
                 if (state.gameFinished[p]) continue;
-                const linha = [...state.attempts[p][rodada]];
-                const pos = linha.findIndex(l => l === '');
+                const line = [...state.attempts[p][round]];
+                const pos = line.findIndex(l => l === '');
                 if (pos !== -1) {
-                    linha[pos] = tecla;
-                    state.attempts[p][rodada] = linha;
+                    line[pos] = key;
+                    state.attempts[p][round] = line;
                     state.currentLetter[p] = pos + 1;
                 }
             }
@@ -114,16 +111,16 @@ export function virtualKeyboard(store: GameStore, tecla: string) {
 
 export function createKeyHandler(store: GameStore) {
     return (e: KeyboardEvent) => {
-        const tecla = e.key.toUpperCase();
+        const key = e.key.toUpperCase();
 
-        if (tecla === 'BACKSPACE') {
+        if (key === 'BACKSPACE') {
             e.preventDefault();
             virtualKeyboard(store, '←');
-        } else if (tecla === 'ENTER') {
+        } else if (key === 'ENTER') {
             e.preventDefault();
             virtualKeyboard(store, 'ENTER');
-        } else if (/^[A-Z]$/.test(tecla)) {
-            virtualKeyboard(store, tecla);
+        } else if (/^[A-Z]$/.test(key)) {
+            virtualKeyboard(store, key);
         }
     };
 }

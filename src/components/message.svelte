@@ -2,29 +2,29 @@
 	import type { GameStore } from '$lib/type';
 	export let store: GameStore;
 
-	$: acertouTudo = $store.secretWord.every((w) => w.varifyword());
+	$: allCorrect = $store.secretWord.every((w) => w.varifyword());
 
-	function formatarPalavras(palavras: string[]): string {
-		if (palavras.length === 1) return palavras[0];
-		if (palavras.length === 2) return palavras.join(' e ');
-		return palavras.slice(0, -1).join(', ') + ' e ' + palavras.at(-1);
+	function formatWords(words: string[]): string {
+		if (words.length === 1) return words[0];
+		if (words.length === 2) return words.join(' e ');
+		return words.slice(0, -1).join(', ') + ' e ' + words.at(-1);
 	}
 
-	$: palavrasCorretas = formatarPalavras($store.secretWord.map((w) => w.word));
-	$: textoPalavra = $store.secretWord.length > 1 ? 'As palavras eram' : 'A palavra era';
+	$: correctWords = formatWords($store.secretWord.map((w) => w.word));
+	$: textWord = $store.secretWord.length > 1 ? 'As palavras eram' : 'A palavra era';
 
-	let contador = 3;
+	let counter = 3;
 
   $: if ($store.gameFinished.every((f) => f)) {
-    contador = 3;
-    iniciarContagem();
+    counter = 3;
+    startCounting();
   }
 
-  function iniciarContagem() {
-    if (contador > 1) {
+  function startCounting() {
+    if (counter > 1) {
       setTimeout(() => {
-        contador--;
-        iniciarContagem(); // 🔄 chama de novo até chegar a 1
+        counter--;
+        startCounting();
       }, 1000);
     }
   }
@@ -33,9 +33,9 @@
 {#if $store.gameFinished.every((f) => f)}
 	<div class="modal-overlay">
 		<div class="modal-content">
-			{acertouTudo ? '🎉 Você acertou!' : `❌ ${textoPalavra}: ${palavrasCorretas}`}
+			{allCorrect ? '🎉 Você acertou!' : `❌ ${textWord}: ${correctWords}`}
 			<br />
-			Nova palavra em {contador} segundos...
+			Nova palavra em {counter} segundos...
 		</div>
 	</div>
 {/if}

@@ -11,8 +11,8 @@
 	import Modal from '../../components/message.svelte';
 
 	const handleKey = createKeyHandler(game);
-	
-	console.log($game.secretWord[0].word)
+
+	console.log($game.secretWord[0].word);
 </script>
 
 <svelte:window on:keydown={handleKey} />
@@ -29,11 +29,16 @@
 	</div>
 
 	<!-- Geração da grade de tentativas -->
-	<Grid attempts={$game.attempts[0]} colors={$game.colors[0]} />
+	<Grid
+		attempts={$game.attempts[0]}
+		colors={$game.colors[0]}
+		currentLetter={$game.currentLetter[0]}
+		currentRound={$game.currentRound}
+	/>
 
 	<!-- teclado virtual -->
 	<Keyboard onKey={(k: string) => virtualKeyboard(game, k)} />
 
 	<!-- Exibe mensagem final quando o jogo termina -->
-	 <Modal store={game} />
+	<Modal store={game} />
 </div>

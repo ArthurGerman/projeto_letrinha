@@ -29,8 +29,19 @@
 
 	<!-- Geração da grade de attempts -->
 	<div style="display: flex; gap: 15px;">
-		<Grid attempts={$dueto.attempts[0]} colors={$dueto.colors[0]} />
-		<Grid attempts={$dueto.attempts[1]} colors={$dueto.colors[1]} />
+		<Grid
+			attempts={$dueto.attempts[0]}
+			colors={$dueto.colors[0]}
+			currentLetter={$dueto.currentLetter[0]}
+			currentRound={$dueto.currentRound}
+		/>
+
+		<Grid
+			attempts={$dueto.attempts[1]}
+			colors={$dueto.colors[1]}
+			currentLetter={$dueto.currentLetter[1]}
+			currentRound={$dueto.currentRound}
+		/>
 	</div>
 
 	<!-- teclado virtual -->

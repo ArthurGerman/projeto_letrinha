@@ -11,9 +11,9 @@ if (typeof localStorage !== 'undefined') {
 
 export const theme = writable<'light' | 'dark'>(initialtheme);
 
-theme.subscribe((valor) => {
+theme.subscribe((value) => {
 	if (typeof localStorage !== 'undefined') {
-		localStorage.setItem('theme', valor);
+		localStorage.setItem('theme', value);
 	}
 });
 
