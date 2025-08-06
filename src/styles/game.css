@@ -91,7 +91,7 @@ td.bloco span {
 .letterSp:hover {
     background-color: var(--kb_light-hover);
 }
-#jogo_finalizado{
+div.modal-content{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
