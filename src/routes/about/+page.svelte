@@ -3,7 +3,7 @@
 		<h1>About the game</h1>
 		<p>
 			This activity refers to the game project we completed at the end of the semester, commissioned by
-			Professor Allan Lima. In our case, the game we chose as a basis was Term. This
+			Professor Allan Lima. In our case, the game we chose as a basis was <a href="https://term.ooo/" target="_blank">Termo</a>. This
 			project was developed by the students:
 		</p>
 
