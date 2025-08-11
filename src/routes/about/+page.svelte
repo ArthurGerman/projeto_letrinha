@@ -1,6 +1,6 @@
 <div class="about">
 	<div class="text">
-		<h1>Sobre o jogo</h1>
+		<h1>About the game</h1>
 		<p>
 			This activity refers to the game project we completed at the end of the semester, commissioned by
 			Professor Allan Lima. In our case, the game we chose as a basis was Term. This
