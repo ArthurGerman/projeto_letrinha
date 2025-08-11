@@ -1,24 +1,30 @@
 <script lang="ts">
-	export let attempts: string[][];
-	export let colors: string[][];
-	export let currentLetter: number;
-	export let currentRound: number;
+	import type { GameStore } from '$lib/type';
+
+	export let store: GameStore;
 </script>
 
-<table style="margin-top: 10px;">
-	<tbody>
-		{#each attempts as line, i}
-			<tr>
-				{#each line as letter, j}
-					<td
-						class="block {colors[i][j]} {i === currentRound && j === currentLetter
-							? 'current_block'
-							: ''}"
-					>
-						<span>{letter}</span>
-					</td>
+<div style="display: flex; gap: 10px;">
+	{#each $store.secretWords as secretWord, w}
+		<table style="margin-top: 10px;">
+			<tbody>
+				{#each $store.attempts[w] as line, i}
+					<tr style="gap: 10px;">
+						{#each line as letter, j}
+							<td
+								class="block {$store.colors[w][i][j]} {i === $store.currentRound &&
+								j === $store.currentLetters[w] &&
+								!$store.gameFinisheds[w]
+									? 'current_block'
+									: ''}"
+								style="opacity: {$store.gameFinisheds[w] ? '40%' : '100%'}"
+							>
+								<span>{letter}</span>
+							</td>
+						{/each}
+					</tr>
 				{/each}
-			</tr>
-		{/each}
-	</tbody>
-</table>
+			</tbody>
+		</table>
+	{/each}
+</div>

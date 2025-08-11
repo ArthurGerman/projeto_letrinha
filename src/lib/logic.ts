@@ -7,8 +7,8 @@ export function checkGuess(store: GameStore) {
         const round = state.currentRound;
         let lineCheck: boolean = false
 
-        for (let p = 0; p < state.secretWord.length; p++) {
-            if (state.gameFinished[p]) continue;
+        for (let p = 0; p < state.secretWords.length; p++) {
+            if (state.gameFinisheds[p]) continue;
 
             const line = state.attempts[p][round];
             if (line.some(l => !l || l.length !== 1)) continue;
@@ -16,7 +16,7 @@ export function checkGuess(store: GameStore) {
 
             lineCheck = true
 
-            const secretWord = state.secretWord[p].word.toUpperCase();
+            const secretWord = state.secretWords[p].word.toUpperCase();
             const secretLetters = secretWord.split('');
             const roundColor = Array(5).fill('gray');
             const usedLetters = Array(5).fill(false);
@@ -43,22 +43,20 @@ export function checkGuess(store: GameStore) {
             state.colors[p][round] = roundColor;
 
             if (Guess === secretWord) {
-                state.gameFinished[p] = true;
-                state.secretWord[p].correctWord = Guess
+                state.gameFinisheds[p] = true;
+                state.secretWords[p].correctWord = Guess
             }
         }
 
         if (lineCheck) {
-            if (!state.gameFinished.every(f => f) && round < 5) {
+            if (!state.gameFinisheds.every(f => f) && round < 5) {
                 state.currentRound = round + 1;
-                state.currentLetter = state.currentLetter.map(() => 0);
+                state.currentLetters = state.currentLetters.map(() => 0);
             } else {
-                state.gameFinished = state.gameFinished.map(() => true);
+                state.gameFinisheds = state.gameFinisheds.map(() => true);
                 restart = true;
             }
         }
-
-
         return state;
     });
 
@@ -79,28 +77,28 @@ export function virtualKeyboard(store: GameStore, key: string) {
         }
 
         if (key === '←') {
-            for (let p = 0; p < state.secretWord.length; p++) {
-                if (state.gameFinished[p]) continue;
+            for (let p = 0; p < state.secretWords.length; p++) {
+                if (state.gameFinisheds[p]) continue;
                 const line = [...state.attempts[p][round]];
                 const idx = line.findLastIndex(l => l !== '');
                 if (idx >= 0) {
                     line[idx] = '';
                     state.attempts[p][round] = line;
-                    state.currentLetter[p] = idx;
+                    state.currentLetters[p] = idx;
                 }
             }
             return state;
         }
 
         if (/^[A-Z]$/.test(key)) {
-            for (let p = 0; p < state.secretWord.length; p++) {
-                if (state.gameFinished[p]) continue;
+            for (let p = 0; p < state.secretWords.length; p++) {
+                if (state.gameFinisheds[p]) continue;
                 const line = [...state.attempts[p][round]];
                 const pos = line.findIndex(l => l === '');
                 if (pos !== -1) {
                     line[pos] = key;
                     state.attempts[p][round] = line;
-                    state.currentLetter[p] = pos + 1;
+                    state.currentLetters[p] = pos + 1;
                 }
             }
         }

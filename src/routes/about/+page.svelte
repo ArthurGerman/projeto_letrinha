@@ -46,7 +46,7 @@
 								<p>Email:</p>
 							</li>
 							<li>
-								GitHub:
+								GitHub: <a href="https://github.com/elder51">elder51</a>
 							</li>
 						</ul>
 					</td>

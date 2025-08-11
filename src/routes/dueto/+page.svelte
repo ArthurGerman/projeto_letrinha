@@ -11,11 +11,10 @@
 	import Modal from '../../components/message.svelte';
 
 	const handleKey = createKeyHandler(dueto);
-
-	console.log($dueto.secretWord[0].word, $dueto.secretWord[1].word);
 </script>
 
 <svelte:window on:keydown={handleKey} />
+
 <div class="container">
 	<!-- header -->
 	<div class="top">
@@ -28,21 +27,7 @@
 	</div>
 
 	<!-- Geração da grade de attempts -->
-	<div style="display: flex; gap: 15px;">
-		<Grid
-			attempts={$dueto.attempts[0]}
-			colors={$dueto.colors[0]}
-			currentLetter={$dueto.currentLetter[0]}
-			currentRound={$dueto.currentRound}
-		/>
-
-		<Grid
-			attempts={$dueto.attempts[1]}
-			colors={$dueto.colors[1]}
-			currentLetter={$dueto.currentLetter[1]}
-			currentRound={$dueto.currentRound}
-		/>
-	</div>
+	<Grid store={dueto} />
 
 	<!-- teclado virtual -->
 	<Keyboard onKey={(k: string) => virtualKeyboard(dueto, k)} />

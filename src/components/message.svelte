@@ -2,7 +2,7 @@
 	import type { GameStore } from '$lib/type';
 	export let store: GameStore;
 
-	$: allCorrect = $store.secretWord.every((w) => w.varifyword());
+	$: allCorrect = $store.secretWords.every((w) => w.varifyword());
 
 	function formatWords(words: string[]): string {
 		if (words.length === 1) return words[0];
@@ -10,27 +10,29 @@
 		return words.slice(0, -1).join(', ') + ' e ' + words.at(-1);
 	}
 
-	$: correctWords = formatWords($store.secretWord.map((w) => w.word));
-	$: textWord = $store.secretWord.length > 1 ? 'As palavras eram' : 'A palavra era';
+	$: correctWords = formatWords($store.secretWords.map((w) => w.word));
+	$: textWord = $store.secretWords.length > 1 ? 'As palavras eram' : 'A palavra era';
 
 	let counter = 3;
+	let timer: ReturnType<typeof setInterval>;
 
-  $: if ($store.gameFinished.every((f) => f)) {
-    counter = 3;
-    startCounting();
-  }
+	$: if ($store.gameFinisheds.every((f) => f)) {
+		counter = 3;
+		startCounting();
+	}
 
-  function startCounting() {
-    if (counter > 1) {
-      setTimeout(() => {
-        counter--;
-        startCounting();
-      }, 1000);
-    }
-  }
+	function startCounting() {
+		timer = setInterval(() => {
+			counter--;
+
+			if (counter == 0) {
+				clearInterval(timer);
+			}
+		}, 1000);
+	}
 </script>
 
-{#if $store.gameFinished.every((f) => f)}
+{#if $store.gameFinisheds.every((f) => f)}
 	<div class="modal-overlay">
 		<div class="modal-content">
 			{allCorrect ? '🎉 Você acertou!' : `❌ ${textWord}: ${correctWords}`}

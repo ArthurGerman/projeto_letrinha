@@ -47,13 +47,15 @@
 		</button>
 	</div>
 
-	<div class="menu">
+	<div class="menu" style="gap: 10px;">
 		<h1>Sopa de Letrinhas</h1>
 
 		<div id="game-buttons">
 			<a class="options play" href="/game" title="play Termo">Play Termo</a>
 			<br />
 			<a class="options play" href="/dueto" title="play Dueto">Play Dueto</a>
+			<br />
+			<a class="options play" href="/quarteto" title="play Quarteto">Play Quarteto</a>
 			<br />
 		</div>
 
