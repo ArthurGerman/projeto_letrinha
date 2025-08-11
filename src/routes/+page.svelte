@@ -47,7 +47,7 @@
 		</button>
 	</div>
 
-	<div class="menu" style="gap: 10px;">
+	<div class="menu">
 		<h1>Sopa de Letrinhas</h1>
 
 		<div id="game-buttons">
