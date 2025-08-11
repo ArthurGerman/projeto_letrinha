@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { GameStore } from '$lib/type';
 	export let store: GameStore;
-
+	import { onDestroy } from 'svelte';
+	
 	$: allCorrect = $store.secretWords.every((w) => w.varifyword());
 
 	function formatWords(words: string[]): string {
@@ -13,20 +14,24 @@
 	$: correctWords = formatWords($store.secretWords.map((w) => w.word));
 	$: textWord = $store.secretWords.length > 1 ? 'As palavras eram' : 'A palavra era';
 
-	let counter = 3;
-	let timer: ReturnType<typeof setInterval>;
 
-	$: if ($store.gameFinisheds.every((f) => f)) {
+	let counter = 3;
+	let timer: ReturnType<typeof setInterval> | null = null;
+	let counting = false;
+
+	$: if ($store.gameFinisheds.every((f) => f) && !counting) {
 		counter = 3;
 		startCounting();
 	}
 
 	function startCounting() {
+		counting = true;
+
 		timer = setInterval(() => {
 			counter--;
-
-			if (counter == 0) {
-				clearInterval(timer);
+			if (counter === 0) {
+				clearInterval(timer!);
+				counting = false;
 			}
 		}, 1000);
 	}
