@@ -6,119 +6,23 @@
 			professor Allan Lima. No nosso caso, o jogo que nós escolhemos como base foi o Termo. Este
 			projeto foi desenvolvido pelos alunos:
 		</p>
+
+		<ul>
+			<li>Arthur Germano da Cunha Silva;</li>
+			<li>Elder da Silva Macena;</li>
+			<li>Guilherme Evaristo da Paz;</li>
+			<li>Lucas Bezerra da Silva;</li>
+			<li>Renato Aprígio de Lima Neto;</li>
+			<li>Thiago Henrique Siqueira dos Santos.</li>
+		</ul>
 	</div>
 
 	<div class="table">
-		<table class="table" border="2">
+		<table class="table">
 			<tbody>
-
-				<!--1º Linha-->
-				<tr>
-					<td class="table_img">
-						<p>img Arthur</p>
-					</td>
-					<td>
-						<ul>
-							<li>
-								<p>Arthur Germano da Cunha Silva</p>
-							</li>
-							<li>
-								<p>Email:</p>
-							</li>
-							<li>
-								<a href="https://github.com/ArthurGerman">GitHub</a>
-							</li>
-						</ul>
-					</td>
-				</tr>
-
-				<!--2º Linha-->
-				<tr>
-					<td class="table_img">
-						<p>img Elder</p>
-					</td>
-					<td>
-						<ul>
-							<li>
-								<p>Elder da Silva Macena</p>
-							</li>
-							<li>
-								<p>Email:</p>
-							</li>
-							<li>
-								GitHub: <a href="https://github.com/elder51">elder51</a>
-							</li>
-						</ul>
-					</td>
-				</tr>
-
-				<!--3º Linha-->
-				<tr>
-					<td class="table_img">
-						<p>img Guilherme</p>
-					</td>
-					<td>
-						<ul>
-							<li>
-								<p>Guilherme Evaristo da Paz</p>
-							</li>
-							<li>
-								<p>Email:</p>
-							</li>
-							<li>
-								GitHub:
-							</li>
-						</ul>
-					</td>
-				</tr>
-
-
-
-				<!--4º linha-->
-				<tr>
-					<td class="table_img">
-						<p>img Lucas</p>
-					</td>
-					<td>
-						<ul>
-							<li>
-								<p>Lucas Bezerra</p>
-							</li>
-							<li>
-								<p>Email:</p>
-							</li>
-							<li>
-								GitHub:
-							</li>
-						</ul>
-					</td>
-				</tr>
-
-
-				<!--5º linha-->
-				<tr>
-					<td class="table_img">
-						<p>img Thiago</p>
-					</td>
-					<td>
-						<ul>
-							<li>
-								<p>Thiago Henrique Siqueira dos Santos</p>
-							</li>
-							<li>
-								<p>Email:</p>
-							</li>
-							<li>
-								GitHub:
-							</li>
-						</ul>
-					</td>
-				</tr>
-
-
 				<!--imagem-->
 				<tr>
-					<td id="img" colspan="3">
+					<td id="img">
 						<img src="/ifpe_logo.png" alt="Logotipo do IFPE">
 					</td>
 				</tr>
