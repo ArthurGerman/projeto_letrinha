@@ -2,9 +2,9 @@
 	<div class="text">
 		<h1>Sobre o jogo</h1>
 		<p>
-			Este atividade refere-se ao projeto de jogo realizado no final do semestre, feito à pedido do
-			professor Allan Lima. No nosso caso, o jogo que nós escolhemos como base foi o Termo. Este
-			projeto foi desenvolvido pelos alunos:
+			This activity refers to the game project we completed at the end of the semester, commissioned by
+			Professor Allan Lima. In our case, the game we chose as a basis was Term. This
+			project was developed by the students:
 		</p>
 
 		<ul>
