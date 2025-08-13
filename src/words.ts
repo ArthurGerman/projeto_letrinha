@@ -1,4 +1,4 @@
-export const words = [ // Array com atualmente 100 palavras
+/*export const words = [ Array com atualmente 100 palavras
     "CASAS", "LIVRO", "TORRE", "FALTA", "BOMBA", "TERRA", "TERNO", "ONTEM", "MORTE", "CARRO", 
     "ANDAR", "ALTAR", "GATOS", "CALMA", "ARMAS", "PONTO", "LINHA", "PERTO", "LONGE", "PRETO",
     "VAPOR", "FOCOS", "TRAPO", "LIMPO", "BEIJO", "FUNDO", "RITMO", "VIDAS", "SUSTO", "GRAMA", 
@@ -9,29 +9,28 @@ export const words = [ // Array com atualmente 100 palavras
     "CASAL", "TECLA", "FELIZ", "GRATO", "TOMBO", "VIRAR", "CINZA", "PONTE", "RISCO", "FALHA", 
     "CERTO", "FREIO", "LENTO", "PLANO", "RURAL", "AREIA", "TINHA", "NORTE", "VAGAS", "METRO", 
     "DADOS", "CARRO", "LOUCA", "RAIOS", "POEMA", "JOGOS", "POMBO", "MARTE", "MACHO", "POLVO"
-];
+];*/
 
-// export const words: string[] = [
-//   "CARRO", "CASAS", "PORTA", "PRAIA", "FORMA", "LINHA", "PONTO", "GENTE", "MORTE", "CAMPO",
-//   "LIVRO", "TARDE", "CLARO", "AMIGO", "DENTE", "VINHO", "NOITE", "BANHO", "FOLHA", "JUSTO",
-//   "SONHO", "GRAMA", "CALMA", "FUNDO", "SINAL", "NORTE", "VERDE", "REINO", "SORTE", "CERTO",
-//   "BANCO", "TRIGO", "PLANO", "AREIA", "POLVO", "POMBO", "MACHO", "MARTE", "CINZA", "PONTE",
-//   "RISCO", "FALHA", "LENTO", "FREIO", "PRETO", "LONGE", "PERTO", "LUGAR", "CALOR", "SUSTO",
-//   "VIDAS", "BEIJO", "TRAMA", "FOLHA", "GATOS", "PEDRA", "VELHO", "JOVEM", "MOVEL", "REINO",
-//   "SALTO", "QUIAO", "PIANO", "CIVIL", "CELAS", "CIDADE", "PASTA", "MORRO", "MENTE", "PERDA",
-//   "GANHA", "MANGA", "DADOS", "COURO", "UVASO", "CRIME", "CHUVA", "FOICE", "GLOBO", "GOSTO",
-//   "HOTEL", "IDEIA", "INATO", "IGUAL", "JUNTO", "LENTO", "LIVRO", "LEGAL", "LEITE", "MANIA",
-//   "METRO", "MISTO", "NAVIO", "NEGRO", "NARIZ", "OUVIR", "ONTEM", "OLHAR", "ORDEM", "PRATO",
-//   "PESCA", "PASSO", "PULAR", "QUERO", "QUEDA", "PODER", "SANTO", "SUBIR", "TEMPO", "TOQUE",
-//   "TROCA", "UNICO", "USADO", "UNIRSE", "URINA", "URUBU", "VEADO", "VENTO", "VOZES", "VERBO",
-//   "XAMPU", "ZUMBI", "MUNDO", "VERAO", "ROCHA", "ROUPA", "CRIME", "GRAÇA", "TESLA", "FRUTA",
-//   "CANTO", "SAMBA", "LINDA", "DANCA", "AVISA", "FORTE", "BANDO", "FONTE", "LENTE", "REDOR",
-//   "RUINA", "PIADA", "BRISA", "CARMA", "DRAMA", "NOTAR", "NOVOS", "LINHA", "TRUPE", "TRAJE",
-//   "REGRA", "ARTES", "CURTO", "DOIDO", "ROLAR", "TEXTO", "MUNDO", "VOLTO", "BRILH", "FLUOR",
-//   "PODER", "TEXTO", "AMIGA", "AMADO", "VIRAR", "CALMO", "PEDRA", "IDOSO", "FEROZ", "RURAL",
-//   "CRUZ?", "CALOR", "CARTA", "COVER", "ESTAR", "RUMOR", "BUSCA", "DRAMA", "POEMA", "CONTO",
-//   "BRIGA", "GRAMa", "TENHA", "FAROL", "PORTE", "ROUPA", "VENHA", "ASSAR", "PENER", "PENTA",
-//   "PLAGA", "NUVEM", "SARAU", "PONHA", "VOLTA", "CARGO", "TRATO", "ASSAR", "POMAR", "AMADO",
-//   "VIRAM", "VADIO","TRATO","CINTO"
-// ];
+export const words: string[] = [ // Array de 200 palavras
+  "CARRO", "CASAS", "PORTA", "PRAIA", "FORMA", "LINHA", "PONTO", "GENTE", "MORTE", "CAMPO",
+  "LIVRO", "TARDE", "CLARO", "AMIGO", "DENTE", "VINHO", "NOITE", "BANHO", "FOLHA", "JUSTO",
+  "SONHO", "GRAMA", "CALMA", "FUNDO", "SINAL", "NORTE", "VERDE", "REINO", "SORTE", "CERTO",
+  "BANCO", "TRIGO", "PLANO", "AREIA", "POLVO", "POMBO", "MACHO", "MARTE", "CINZA", "PONTE",
+  "RISCO", "FALHA", "LENTO", "FREIO", "PRETO", "LONGE", "PERTO", "LUGAR", "CALOR", "SUSTO",
+  "VIDAS", "BEIJO", "TRAMA", "FOLHA", "GATOS", "PEDRA", "VELHO", "JOVEM", "MOVEL", "REINO",
+  "HOTEL", "IDEIA", "INATO", "IGUAL", "JUNTO", "LENTO", "LIVRO", "LEGAL", "LEITE", "MANIA",
+  "METRO", "MISTO", "NAVIO", "NEGRO", "NARIZ", "OUVIR", "ONTEM", "OLHAR", "ORDEM", "PRATO",
+  "PESCA", "PASSO", "PULAR", "QUERO", "QUEDA", "PODER", "SANTO", "SUBIR", "TEMPO", "TOQUE",
+  "XAMPU", "ZUMBI", "MUNDO", "VERAO", "ROCHA", "ROUPA", "CRIME", "GRAÇA", "TESLA", "FRUTA",
+  "RUINA", "PIADA", "BRISA", "CARMA", "DRAMA", "NOTAR", "NOVOS", "LINHA", "TRUPE", "TRAJE",
+  "PODER", "TEXTO", "AMIGA", "AMADO", "VIRAR", "CALMO", "PEDRA", "IDOSO", "FEROZ", "RURAL",
+  "BRIGA", "GRAMA", "TENHA", "FAROL", "PORTE", "ROUPA", "VENHA", "ASSAR", "PENER", "PENTA",
+  "PLACA", "NUVEM", "SARAU", "PONHA", "VOLTA", "CARGO", "TRATO", "ASSAR", "POMAR", "AMADO",
+  "REGRA", "ARTES", "CURTO", "DOIDO", "ROLAR", "TEXTO", "MUNDO", "VOLTO", "FLUOR", "CALOR", 
+  "CARTA", "COVER", "ESTAR", "RUMOR", "BUSCA", "DRAMA", "POEMA", "CONTO", "CANTO", "SAMBA", 
+  "LINDA", "DANCA", "AVISA", "FORTE", "BANDO", "FONTE", "LENTE", "SALTO", "QUIAO", "PIANO", 
+  "CIVIL", "CELAS", "PASTA", "MORRO", "MENTE", "PERDA", "GANHA", "MANGA", "DADOS", "COURO", 
+  "CRIME", "CHUVA", "FOICE", "GLOBO", "GOSTO", "TROCA", "UNICO", "USADO", "URINA", "URUBU", 
+  "VEADO", "VENTO", "VOZES", "VERBO", "VIRAM", "VADIO", "TRATO", "CINTO", "SONHO", "METRO"
+];
 
