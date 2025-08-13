@@ -19,6 +19,7 @@ export class Word {
 
 export function chooseRandomWord() {
     const randomIndex = Math.floor(Math.random() * words.length);
+    if (wordUsed.length == words.length) wordUsed.length = 0
     if (wordUsed.includes(randomIndex)) return chooseRandomWord()
     wordUsed.push(randomIndex)
     return words[randomIndex];
